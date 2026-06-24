@@ -1,0 +1,138 @@
+# ─────────────────────────────────────────────────────────────
+#  Mark Attendance — Root .htaccess
+#  Security + Clean URLs + Performance
+# ─────────────────────────────────────────────────────────────
+
+# Disable directory browsing and content-type negotiation
+Options -Indexes -MultiViews
+
+# ─── Rewrite Engine ───────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # No RewriteBase — works for both virtual-host (attendance-website.test)
+  # and subdirectory (localhost/attendance-website) setups.
+
+  # ── Force HTTPS (uncomment on live server) ─────────────────
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # ── Remove www (optional — uncomment to enforce non-www) ───
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # ── Block direct access to includes/ ──────────────────────
+  RewriteRule ^includes(/.*)?$ - [F,L]
+
+  # ── Block direct access to the convert script if left ──────
+  RewriteRule ^convert-to-php\.php$ - [F,L]
+
+  # ── Redirect old .html URLs → clean URLs (301 permanent) ──
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [L,R=301]
+
+  RewriteCond %{THE_REQUEST} \s/+(about|contact|features|how-it-works|industries|mobile-app|pricing)\.html[\s?] [NC]
+  RewriteRule ^(.+)\.html$ /$1 [L,R=301]
+
+  # ── Block direct *.php access → redirect to clean URL ──────
+  RewriteCond %{THE_REQUEST} \s/+([^/\s]+)\.php[\s?] [NC]
+  RewriteRule ^(.+)\.php$ /$1 [L,R=301]
+
+  # ── Route clean URLs to PHP files ─────────────────────────
+  # Uses REQUEST_FILENAME.php check — works for both virtual-host and subdir.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^([^/.]+)/?$ $1.php [L]
+
+  # ── Block common attack vectors ────────────────────────────
+
+  # Null-byte injection
+  RewriteCond %{QUERY_STRING} (\%00|\x00|%0d%0a) [NC]
+  RewriteRule .* - [F,L]
+
+  # SQL injection
+  RewriteCond %{QUERY_STRING} (union\b.+\bselect|insert\b.+\binto|drop\b.+\btable|information_schema) [NC]
+  RewriteRule .* - [F,L]
+
+  # XSS probes
+  RewriteCond %{QUERY_STRING} (<script|javascript:|vbscript:|onload\s*=|onerror\s*=) [NC]
+  RewriteRule .* - [F,L]
+
+  # Path traversal
+  RewriteCond %{REQUEST_URI} (\.\.\/|\.\.\\) [NC]
+  RewriteRule .* - [F,L]
+
+  # Remote file inclusion
+  RewriteCond %{QUERY_STRING} (http|https|ftp):// [NC]
+  RewriteRule .* - [F,L]
+
+  # Known bad bots / scanners
+  RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|nmap|masscan|havij|acunetix|nessus|w3af|dirbuster|gobuster) [NC]
+  RewriteRule .* - [F,L]
+</IfModule>
+
+# ─── Security Headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # XSS filter (legacy browsers)
+  Header always set X-XSS-Protection "1; mode=block"
+  # Control referrer information
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Restrict browser features
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # Hide server fingerprinting
+  Header always unset X-Powered-By
+  Header always unset Server
+</IfModule>
+
+# ─── Block Hidden Files ───────────────────────────────────────
+# Deny access to .htaccess, .env, .git, etc.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# ─── Block Sensitive File Types ───────────────────────────────
+<FilesMatch "\.(env|log|sql|bak|backup|config|lock|sh|bat|ps1|pem|key|crt)$">
+  Require all denied
+</FilesMatch>
+
+# Allow robots.txt and sitemap.xml to be public
+<Files "robots.txt">
+  Require all granted
+</Files>
+<Files "sitemap.xml">
+  Require all granted
+</Files>
+
+# ─── Restrict HTTP Methods ────────────────────────────────────
+# Only allow safe methods used by a static/PHP site
+<LimitExcept GET POST HEAD OPTIONS>
+  Require all denied
+</LimitExcept>
+
+# ─── Browser Caching (Performance) ───────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                "access plus 1 hour"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType image/svg+xml            "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 year"
+  ExpiresByType image/jpeg               "access plus 1 year"
+  ExpiresByType image/webp               "access plus 1 year"
+  ExpiresByType font/woff2               "access plus 1 year"
+  ExpiresByType font/woff                "access plus 1 year"
+</IfModule>
+
+# ─── Gzip Compression ─────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ─── Default Charset ──────────────────────────────────────────
+AddDefaultCharset UTF-8

@@ -1,0 +1,11 @@
+# Serve only JS files — no PHP execution allowed.
+Options -Indexes
+
+<FilesMatch "\.php[s345]?$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 year"
+</IfModule>

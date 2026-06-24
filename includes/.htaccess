@@ -1,0 +1,3 @@
+# Block ALL direct web access to the includes directory.
+# PHP files here are only accessible via require_once from page files.
+Require all denied
