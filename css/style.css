@@ -976,3 +976,54 @@ p  { color: #4B5563; line-height: 1.75; }
 .t-text  { font-size: .82rem; font-weight: 600; color: var(--black); }
 .plan-price-custom { font-size: 2.2rem; }
 @media (max-width: 640px) { .comp-table th, .comp-table td { padding: .75rem; font-size: .82rem; } }
+
+/* ── Global mobile overflow guard ──────────────────────── */
+html, body { overflow-x: hidden; }
+
+/* ── Mobile overrides (≤768px) ─────────────────────────── */
+@media (max-width: 768px) {
+  /* Shrink nav logo so it fits alongside hamburger */
+  .nav-logo-img { height: 48px; }
+  .nav-inner    { height: 72px; }
+  .page-body    { padding-top: 72px; }
+
+  /* Float cards overflow the viewport on single-column hero */
+  .float-card { display: none; }
+
+  /* Hero trust row — wrap to avoid overflow on 375px */
+  .hero-trust { flex-wrap: wrap; gap: .75rem 1.25rem; }
+
+  /* CTA band buttons stack and stretch */
+  .cta-btns,
+  .cta-band-actions { flex-direction: column; align-items: center; }
+  .cta-btns .btn,
+  .cta-band-actions .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+  /* Pricing: remove "popular" vertical offset when cards stack */
+  .pricing-card.popular       { transform: none; }
+  .pricing-card.popular:hover { transform: translateY(-4px); }
+
+  /* Nav: hide "Get Free Demo" button too — drawer has it */
+  .nav-actions .btn-primary { display: none; }
+}
+
+/* ── Small mobile (≤480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  /* Hero stats in a single column */
+  .stats-grid { grid-template-columns: 1fr; }
+
+  /* Hero phone visual hidden — text is the priority */
+  .hero-visual { display: none; }
+
+  /* App section bullets full-width */
+  .app-badges { flex-direction: column; align-items: flex-start; }
+
+  /* Prevent section headers overflowing */
+  .section-header { margin-bottom: 2.5rem; }
+
+  /* Pricing toggle wrap stacks on tiny screens */
+  .pricing-toggle-wrap { flex-wrap: wrap; justify-content: center; }
+
+  /* Screenshots: single column on tiny phones */
+  .screenshots-row { grid-template-columns: 1fr; max-width: 200px; margin: 0 auto; }
+}

@@ -61,8 +61,8 @@ require_once __DIR__ . '/includes/nav.php';
           <span aria-current="page">Features</span>
         </nav>
         <span class="tag">Features</span>
-        <h1>Powerful Features for Modern<br>Attendance Management</h1>
-        <p>Everything your organisation needs — face recognition, real-time tracking,<br>automated reports, and more.</p>
+        <h1>Powerful Features for Modern Attendance Management</h1>
+        <p>Everything your organisation needs — face recognition, real-time tracking, automated reports, and more.</p>
       </div>
     </section>
 

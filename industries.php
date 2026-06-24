@@ -53,7 +53,7 @@ require_once __DIR__ . '/includes/nav.php';
           <span aria-current="page">Industries</span>
         </nav>
         <span class="tag">Industries</span>
-        <h1>Attendance Management for<br>Every Industry</h1>
+        <h1>Attendance Management for Every Industry</h1>
         <p>From corporate offices to factory floors — Mark Attendance adapts to how your organisation works.</p>
       </div>
     </section>
