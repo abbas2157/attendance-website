@@ -27,6 +27,13 @@
   --max:      1200px;
 }
 
+/* ── Accessibility utility ─────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
 /* ── Base ──────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); color: var(--black); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -689,7 +696,7 @@ p  { color: #4B5563; line-height: 1.75; }
 @media (max-width: 768px) { .demo-grid { grid-template-columns: 1fr; gap: 2rem; } }
 
 /* ── Features page ──────────────────────────────────────── */
-.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-l); box-shadow: var(--shadow-m); }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-l); box-shadow: var(--shadow-m); padding-top: 1.5rem; }
 .feat-table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .9rem; }
 .feat-table th,
 .feat-table td { padding: 1rem 1.25rem; text-align: center; border-bottom: 1px solid var(--mid); }
