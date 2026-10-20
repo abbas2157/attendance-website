@@ -9,16 +9,10 @@
           </div>
           <span><span class="logo-mark">Mark</span> Attendance</span>
         </div>
-        <p>Smart face recognition attendance management for offices, factories, warehouses, and businesses of all sizes. Be on right time.</p>
+        <p>Smart face recognition attendance management for offices, factories, warehouses, and businesses of all sizes. Be on time.</p>
         <div class="footer-dl" aria-label="Download the app">
-          <a href="#" class="footer-dl-btn" aria-label="Download on Google Play">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76a2 2 0 001.94-.22l12.1-7.05-3.03-3.03-11.01 10.3zm-1.6-21.27C1.22 2.9 1 3.4 1 4.05v15.9c0 .65.22 1.15.58 1.56l.08.08L11.03 12v-.21L1.66 2.4l-.08.09zM20.1 10.27l-2.77-1.61-3.38 3.34 3.38 3.34 2.79-1.63c.8-.46.8-1.98-.02-2.44zM5.12.46L17.22 7.5l-3.02 3.02L3.18.22A2 2 0 005.12.46z"/></svg>
-            <span><span class="badge-sub">Get it on</span><span class="badge-name">Google Play</span></span>
-          </a>
-          <a href="#" class="footer-dl-btn" aria-label="Download on the App Store">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <span><span class="badge-sub">Download on the</span><span class="badge-name">App Store</span></span>
-          </a>
+          <?= store_badge('play', 'footer-dl-btn') ?>
+          <?= store_badge('apple', 'footer-dl-btn') ?>
         </div>
       </div>
 
@@ -39,8 +33,8 @@
           <li><a href="<?= $b ?>/about">About Us</a></li>
           <li><a href="<?= $b ?>/industries">Industries</a></li>
           <li><a href="<?= $b ?>/contact">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="<?= $b ?>/privacy-policy">Privacy Policy</a></li>
+          <li><a href="<?= $b ?>/terms">Terms of Service</a></li>
         </ul>
       </div>
 
@@ -48,11 +42,13 @@
         <h5>Contact</h5>
         <div class="f-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>info@markattendance.com</span>
+          <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a>
+          <button type="button" class="copy-btn copy-btn-dark" data-copy="<?= CONTACT_EMAIL ?>" aria-label="Copy email address">Copy</button>
         </div>
         <div class="f-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          <span>+92 300 0000000</span>
+          <a href="tel:<?= CONTACT_PHONE_E164 ?>"><?= CONTACT_PHONE ?></a>
+          <button type="button" class="copy-btn copy-btn-dark" data-copy="<?= CONTACT_PHONE ?>" aria-label="Copy phone number">Copy</button>
         </div>
         <div class="f-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -64,17 +60,35 @@
     <hr class="footer-hr">
 
     <div class="footer-bottom">
-      <p>&copy; <?= date('Y') ?> Mark Attendance. All rights reserved. Tagline: <em>Be on right time.</em></p>
-      <div class="f-social" aria-label="Social media links">
-        <a href="#" class="f-soc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="#" class="f-soc" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-        <a href="#" class="f-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="f-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-      </div>
+      <p>&copy; <?= date('Y') ?> Mark Attendance. All rights reserved. <em>Be on time.</em></p>
+      <?php $social = social_links('f-soc'); if ($social !== ''): ?>
+      <div class="f-social" aria-label="Social media links"><?= $social ?></div>
+      <?php endif; ?>
     </div>
   </div>
 </footer>
 
-<script src="<?= $b ?>/js/main.js" defer></script>
+<!-- Floating actions: WhatsApp + back to top -->
+<a href="<?= htmlspecialchars(whatsapp_url()) ?>" class="wa-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.38 4 15.01c0 2.12.56 4.19 1.62 6.01L4 29l8.17-1.58a12.04 12.04 0 003.87.64h.01C22.68 28.06 28 22.68 28 16.05 28 9.4 22.68 3 16.04 3zm0 22.9h-.01a9.9 9.9 0 01-5.05-1.38l-.36-.21-4.85.94.97-4.71-.24-.38a9.86 9.86 0 01-1.52-5.15c0-5.47 4.46-9.92 9.95-9.92 2.66 0 5.15 1.04 7.03 2.92a9.85 9.85 0 012.91 7.02c0 5.48-4.46 9.87-9.83 9.87zm5.44-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48a9 9 0 01-1.66-2.07c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+  <span class="wa-float-label">Chat with us</span>
+</a>
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Cookie banner (shown by main.js until the visitor chooses) -->
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+  <p>We use essential cookies to run this site and, with your permission, analytics cookies to understand how it's used. <a href="<?= $b ?>/privacy-policy#cookies">Learn more</a></p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-outline btn-sm" data-cookie="essential">Essential only</button>
+    <button type="button" class="btn btn-primary btn-sm" data-cookie="all">Accept all</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.SITE = { base: <?= json_encode($b) ?>, ga4: <?= json_encode(GA4_MEASUREMENT_ID) ?>, email: <?= json_encode(CONTACT_EMAIL) ?> };</script>
+<script src="<?= asset('/js/main.js') ?>" defer></script>
 </body>
 </html>

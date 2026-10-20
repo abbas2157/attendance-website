@@ -1034,3 +1034,272 @@ html, body { overflow-x: hidden; }
   /* Screenshots: single column on tiny phones */
   .screenshots-row { grid-template-columns: 1fr; max-width: 200px; margin: 0 auto; }
 }
+
+/* ============================================================
+   LAUNCH ADDITIONS — accessibility, UX helpers, new components
+   ============================================================ */
+
+/* ── Logo (image is now cropped tight, so it renders smaller) ── */
+.nav-logo-img { height: 58px; width: auto; }
+
+/* ── Keyboard focus ────────────────────────────────────── */
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible,
+.search-form input:focus-visible { outline: none; }
+#main-content:focus { outline: none; }
+
+/* ── Skip to content ───────────────────────────────────── */
+.skip-link {
+  position: fixed; top: .75rem; left: .75rem; z-index: 3000;
+  background: var(--purple); color: var(--white); font-weight: 600; font-size: .9rem;
+  padding: .7rem 1.2rem; border-radius: 8px; box-shadow: var(--shadow-m);
+  transform: translateY(-160%); transition: transform .2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ── Page loader (only when JS runs; auto-hides after 3s as a failsafe) ── */
+.page-loader { display: none; }
+.js .page-loader {
+  position: fixed; inset: 0; z-index: 2900; background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  animation: loaderFailsafe .3s ease 3s forwards;
+}
+.js .page-loader.done { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s .35s; }
+.page-loader-ring {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 4px solid rgba(102,45,145,.15); border-top-color: var(--purple); border-right-color: var(--blue);
+  animation: rotate .8s linear infinite;
+}
+@keyframes loaderFailsafe { to { opacity: 0; visibility: hidden; } }
+
+/* ── Scroll progress bar ───────────────────────────────── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 1100;
+  background: var(--gradient); transform-origin: 0 50%; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ── Search ────────────────────────────────────────────── */
+.nav-search-btn {
+  width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  color: #374151; transition: var(--ease);
+}
+.nav-search-btn svg { width: 20px; height: 20px; }
+.nav-search-btn:hover, .nav-search-btn[aria-expanded="true"] { background: rgba(102,45,145,.08); color: var(--purple); }
+.search-panel { border-top: 1px solid var(--mid); background: var(--white); padding: 1rem 0; box-shadow: var(--shadow-s); }
+.search-panel[hidden] { display: none; }
+.search-form {
+  position: relative; display: flex; align-items: center; gap: .6rem;
+  max-width: 640px; margin: 0 auto;
+}
+.search-form > svg { position: absolute; left: 1rem; width: 18px; height: 18px; color: var(--muted); pointer-events: none; }
+.search-form input {
+  flex: 1; min-width: 0; padding: .75rem 1rem .75rem 2.75rem; font-size: 1rem;
+  border: 1.5px solid var(--mid); border-radius: 50px; background: var(--white); color: var(--black);
+  transition: var(--ease); -webkit-appearance: none; appearance: none;
+}
+.search-form input:hover { border-color: rgba(102,45,145,.35); }
+.search-form input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(102,45,145,.12); }
+.search-form-drawer { margin-bottom: .5rem; }
+.search-form-page { margin-top: 1.5rem; }
+.page-hero-compact { padding: 3rem 0 2.5rem; }
+.search-results { max-width: 760px; }
+.search-results-section { padding-top: 3rem; }
+.search-count { margin-bottom: 1.5rem; color: var(--muted); }
+.search-count a, .search-results p a { color: var(--purple); text-decoration: underline; }
+.search-list { list-style: none; display: grid; gap: 1rem; }
+.search-item { padding: 1.25rem 1.5rem; border: 1px solid var(--mid); border-radius: var(--radius); transition: var(--ease); }
+.search-item:hover { border-color: rgba(102,45,145,.3); box-shadow: var(--shadow-s); }
+.search-item-title { font-weight: 700; font-size: 1.1rem; color: var(--purple); }
+.search-item-title:hover { text-decoration: underline; }
+.search-item-url { display: block; font-size: .78rem; color: var(--muted); margin: .15rem 0 .5rem; overflow-wrap: anywhere; }
+.search-item p { font-size: .92rem; }
+mark { background: rgba(232,151,58,.28); color: inherit; border-radius: 3px; padding: 0 .1em; }
+
+/* ── Mobile menu polish ────────────────────────────────── */
+.hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; border-radius: 10px; }
+.hamburger:hover { background: rgba(102,45,145,.07); }
+.nav-drawer { max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; }
+.nav-drawer a:not(.btn) { transition: color .2s ease; }
+.nav-drawer a:not(.btn):hover,
+.nav-drawer a.active { color: var(--purple); }
+/* The older ".nav-drawer a" rule was overriding the button's colour and centring */
+.nav-drawer a.btn { display: flex; color: var(--white); border-bottom: none; padding: .9rem 2rem; }
+
+/* ── Extra hover states ────────────────────────────────── */
+.breadcrumb a:hover,
+.cd-val a:hover,
+.legal a:hover { text-decoration: underline; }
+.f-contact-item a { color: inherit; transition: var(--ease); }
+.f-contact-item a:hover { color: var(--white); }
+.faq-q { cursor: pointer; transition: color .2s ease; }
+.faq-q:hover { color: var(--purple); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+
+/* ── App-store badges: "Coming soon" ───────────────────── */
+.is-soon { cursor: default; opacity: .75; }
+.is-soon:hover { transform: none; box-shadow: none; }
+.app-badge.is-soon:hover { background: rgba(255,255,255,.08); }
+.footer-dl-btn.is-soon:hover { background: rgba(255,255,255,.06); }
+
+/* ── Copy button ───────────────────────────────────────── */
+.copy-btn {
+  display: inline-flex; align-items: center; margin-left: .5rem; vertical-align: middle;
+  padding: .15rem .6rem; border-radius: 6px; font-size: .72rem; font-weight: 600;
+  color: var(--purple); background: rgba(102,45,145,.08); border: 1px solid rgba(102,45,145,.15);
+  transition: var(--ease);
+}
+.copy-btn:hover { background: var(--purple); color: var(--white); }
+.copy-btn.copied { background: #16A34A; border-color: #16A34A; color: var(--white); }
+.copy-btn-dark { color: rgba(255,255,255,.75); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+.copy-btn-dark:hover { background: rgba(255,255,255,.18); color: var(--white); }
+.f-contact-item { align-items: center; flex-wrap: wrap; }
+
+/* ── Toast ─────────────────────────────────────────────── */
+.toast {
+  position: fixed; left: 50%; top: 5.5rem; z-index: 2600;
+  background: var(--black); color: var(--white); font-size: .88rem; font-weight: 500;
+  padding: .7rem 1.2rem; border-radius: 50px; box-shadow: var(--shadow-l);
+  opacity: 0; visibility: hidden; transform: translate(-50%, -12px);
+  transition: opacity .25s ease, transform .25s ease, visibility 0s .25s;
+  max-width: calc(100vw - 32px); text-align: center;
+}
+.toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .25s ease, transform .25s ease; }
+
+/* ── Floating WhatsApp + Back to top ───────────────────── */
+.wa-float {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1500;
+  display: flex; align-items: center; gap: .5rem;
+  height: 56px; padding: 0 1.1rem 0 1rem; border-radius: 50px;
+  background: #25D366; color: var(--white); font-weight: 600; font-size: .9rem;
+  box-shadow: 0 6px 24px rgba(37,211,102,.45); transition: var(--ease);
+}
+.wa-float svg { width: 28px; height: 28px; flex-shrink: 0; }
+.wa-float:hover { background: #1EBE5A; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(37,211,102,.5); }
+.back-to-top {
+  position: fixed; right: 1.25rem; bottom: calc(1.25rem + 56px + .75rem); z-index: 1500;
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white); color: var(--purple); border: 1px solid var(--mid); box-shadow: var(--shadow-m);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity .25s ease, transform .25s ease, visibility 0s .25s, background .2s ease, color .2s ease;
+}
+.back-to-top svg { width: 22px; height: 22px; }
+.back-to-top.show { opacity: 1; visibility: visible; transform: none; transition: opacity .25s ease, transform .25s ease, background .2s ease, color .2s ease; }
+.back-to-top:hover { background: var(--gradient); color: var(--white); border-color: transparent; }
+
+/* ── Cookie banner ─────────────────────────────────────── */
+.cookie-banner {
+  position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 2000;
+  max-width: 420px; padding: 1.25rem 1.4rem;
+  background: var(--white); border: 1px solid var(--mid); border-radius: var(--radius);
+  box-shadow: var(--shadow-l); animation: fadeUp .4s ease;
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { font-size: .85rem; line-height: 1.6; margin-bottom: 1rem; }
+.cookie-banner p a { color: var(--purple); text-decoration: underline; }
+.cookie-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.cookie-actions .btn { flex: 1; justify-content: center; }
+.link-btn { color: var(--purple); text-decoration: underline; font: inherit; padding: 0; }
+.link-btn:hover { color: var(--blue); }
+
+/* ── Form states ───────────────────────────────────────── */
+.form-alert {
+  display: flex; align-items: flex-start; gap: .6rem;
+  padding: .85rem 1rem; margin-bottom: 1.2rem; border-radius: 10px;
+  background: rgba(206,75,94,.08); border: 1px solid rgba(206,75,94,.35);
+  color: #9F1239; font-size: .88rem; font-weight: 500;
+}
+.form-alert[hidden] { display: none; }
+.form-alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+.form-alert:focus { outline: none; }
+.form-group.has-error input,
+.form-group.has-error textarea,
+.form-group.has-error select { background: rgba(206,75,94,.03); }
+.form-group.has-error input:focus,
+.form-group.has-error textarea:focus,
+.form-group.has-error select:focus { box-shadow: 0 0 0 3px rgba(206,75,94,.15); }
+.form-group.is-valid input,
+.form-group.is-valid textarea,
+.form-group.is-valid select { border-color: #16A34A; }
+.form-group input:hover:not(:focus),
+.form-group textarea:hover:not(:focus),
+.form-group select:hover:not(:focus) { border-color: rgba(102,45,145,.35); }
+.form-group.has-error input:hover:not(:focus),
+.form-group.has-error textarea:hover:not(:focus),
+.form-group.has-error select:hover:not(:focus) { border-color: var(--coral); }
+.hp-field { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.btn-spinner {
+  display: none; width: 18px; height: 18px; border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,.4); border-top-color: var(--white);
+  animation: rotate .7s linear infinite;
+}
+.btn.is-loading .btn-spinner { display: inline-block; }
+.form-success:focus { outline: none; }
+.success-icon {
+  width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 50%;
+  background: rgba(22,163,74,.12); color: #16A34A;
+  display: flex; align-items: center; justify-content: center;
+  animation: popIn .4s cubic-bezier(.2,1.4,.4,1);
+}
+.success-icon svg { width: 32px; height: 32px; }
+.form-success h3 { margin-bottom: .5rem; }
+.form-success-alt { font-size: .9rem; margin: .75rem 0 1.25rem; }
+.form-success-alt a { color: var(--purple); font-weight: 600; text-decoration: underline; }
+@keyframes popIn { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* ── Password visibility toggle ────────────────────────── */
+.password-wrap { position: relative; }
+.password-wrap input { padding-right: 3rem; }
+.password-toggle {
+  position: absolute; right: .4rem; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); transition: var(--ease);
+}
+.password-toggle svg { width: 20px; height: 20px; }
+.password-toggle:hover { color: var(--purple); background: rgba(102,45,145,.07); }
+.password-toggle.on { color: var(--purple); }
+.password-toggle.on svg { opacity: .55; }
+
+/* ── Map card ──────────────────────────────────────────── */
+.map-open { margin-bottom: 1rem; }
+
+/* ── Legal pages ───────────────────────────────────────── */
+.legal { max-width: 780px; }
+.legal h2 { font-size: 1.3rem; margin: 2.25rem 0 .75rem; }
+.legal p, .legal li { font-size: .97rem; }
+.legal p { margin-bottom: 1rem; }
+.legal ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 1rem; }
+.legal li { color: #4B5563; line-height: 1.75; margin-bottom: .4rem; }
+.legal a { color: var(--purple); }
+.legal code { font-size: .85em; background: var(--light); padding: .1em .35em; border-radius: 4px; }
+
+/* ── 404 ───────────────────────────────────────────────── */
+.not-found { padding: 5rem 0; }
+.not-found-code { font-size: clamp(4rem, 14vw, 7rem); font-weight: 800; line-height: 1; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .5rem; }
+.not-found-links { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+
+/* ── Mobile ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-logo-img { height: 44px; }
+  .nav-drawer { top: 72px; }
+  .search-panel .search-form .btn { display: none; }
+  .wa-float { width: 56px; padding: 0; justify-content: center; right: 1rem; bottom: 1rem; }
+  .wa-float-label { display: none; }
+  .back-to-top { right: 1.3rem; bottom: calc(1rem + 56px + .75rem); }
+  .cookie-banner { left: .75rem; right: .75rem; bottom: .75rem; max-width: none; }
+  /* Keep floating buttons out of the banner's way while it's open */
+  body.has-cookie-banner .wa-float,
+  body.has-cookie-banner .back-to-top { display: none; }
+}
+
+/* ── Respect reduced-motion preferences ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+.cta-inline-link { color: inherit; text-decoration: underline; font-weight: 600; }

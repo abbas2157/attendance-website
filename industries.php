@@ -1,26 +1,23 @@
 <?php
-$page_title          = 'Industries | Mark Attendance – Attendance for Offices, Factories & Warehouses';
+$page_title          = 'Industries | Attendance for Offices, Factories & Warehouses';
 $meta_description    = 'Mark Attendance serves offices, factories & mills, warehouses, and all businesses. Smart face recognition attendance tailored to every industry.';
-$canonical_url       = 'https://www.markattendance.com/industries';
+$canonical_url       = 'https://markattendance.io/industries';
 $og_description      = 'Mark Attendance serves offices, factories & mills, warehouses, and all businesses. Smart face recognition attendance tailored to every industry.';
-$og_image            = 'https://www.markattendance.com/assets/og-image.png';
 $twitter_description = 'Mark Attendance serves offices, factories & mills, warehouses, and all businesses. Smart face recognition attendance tailored to every industry.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-image.png';
-$noindex             = true;
 $current_page        = 'industries';
 $json_ld = <<<'JSONLD'
 {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Mark Attendance",
-    "url": "https://www.markattendance.com",
-    "logo": "https://www.markattendance.com/assets/favicon.svg",
+    "url": "https://markattendance.io",
+    "logo": "https://markattendance.io/assets/icon-512.png",
     "description": "Smart face recognition attendance management system serving offices, factories, mills, warehouses, and businesses of all sizes.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+92-300-0000000",
+      "telephone": "+92-306-4164077",
       "contactType": "customer service",
-      "email": "info@markattendance.com",
+      "email": "info@markattendance.io",
       "areaServed": "PK",
       "availableLanguage": ["English", "Urdu"]
     },
@@ -29,11 +26,7 @@ $json_ld = <<<'JSONLD'
       "addressLocality": "Lahore",
       "addressCountry": "PK"
     },
-    "sameAs": [
-      "https://www.facebook.com/markattendance",
-      "https://twitter.com/markattendance",
-      "https://www.linkedin.com/company/markattendance"
-    ]
+    "sameAs": []
   }
 JSONLD;
 
@@ -42,13 +35,13 @@ require_once __DIR__ . '/includes/nav.php';
 ?>
 
 <!-- Main content -->
-  <main class="page-body">
+  <main class="page-body" id="main-content">
 
     <!-- 1. PAGE HERO -->
     <section class="page-hero" aria-label="Industries hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="<?= SITE_BASE ?>/">Home</a>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span aria-current="page">Industries</span>
         </nav>
@@ -64,7 +57,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="section-header reveal">
           <span class="tag">Who We Serve</span>
           <h2 id="industries-overview-heading">Built for Every Work Environment</h2>
-          <p>Whether you manage a 10-person office or a 5,000-employee factory, Mark Attendance has a solution tailored to your operational reality.</p>
+          <p>Whether you run a small office or a multi-site factory, Mark Attendance is designed to fit your operational reality.</p>
         </div>
         <div class="ind-grid ind-grid-lg" role="list">
 
@@ -105,7 +98,7 @@ require_once __DIR__ . '/includes/nav.php';
           <article class="ind-card v-coral reveal d4" role="listitem">
             <div class="ic" aria-hidden="true">💼</div>
             <h3>All Businesses</h3>
-            <p>Flexible and scalable — from a 10-person startup to a 5,000-employee enterprise. Grows with you.</p>
+            <p>Flexible and scalable — from small teams to large multi-site workforces. Grows with you.</p>
             <a href="#businesses" class="more" aria-label="Learn more about attendance for all businesses">
               Learn more
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 4.5L10 7l-2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -317,7 +310,7 @@ require_once __DIR__ . '/includes/nav.php';
               <div class="ind-visual-label">All Business Types</div>
               <div class="ind-visual-sublabel">Startup to Enterprise, Cloud-Native</div>
               <div class="ind-visual-pills">
-                <span class="ind-v-pill pc">5–50,000 Staff</span>
+                <span class="ind-v-pill pc">Any Team Size</span>
                 <span class="ind-v-pill po">Multi-Branch</span>
                 <span class="ind-v-pill pc">Cloud-Native</span>
                 <span class="ind-v-pill po">24/7 Support</span>
@@ -329,13 +322,13 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="ind-detail-text reveal d2">
             <span class="tag">Flexible</span>
             <h2 id="businesses-heading">Scales With Your Business</h2>
-            <p>From a 5-person retail shop to a 50,000-employee enterprise, Mark Attendance flexes to fit your scale. No on-premise hardware. No infrastructure headaches. Just a platform that grows alongside your organisation.</p>
+            <p>From a small retail shop to a large multi-site enterprise, Mark Attendance is built to flex to your scale. No on-premise hardware. No infrastructure headaches. Just a platform that grows alongside your organisation.</p>
             <ul class="ind-benefits" aria-label="All business solution benefits">
               <li class="ind-benefit">
                 <span class="ind-benefit-check bg-coral" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </span>
-                <span>Scales from 5 to 50,000 employees without any reconfiguration</span>
+                <span>Scales from small teams to large multi-site workforces without reconfiguration</span>
               </li>
               <li class="ind-benefit">
                 <span class="ind-benefit-check bg-coral" aria-hidden="true">
@@ -368,83 +361,56 @@ require_once __DIR__ . '/includes/nav.php';
       </div>
     </section>
 
-    <!-- 4. USE CASE STATS -->
-    <div class="stats-bar" role="region" aria-label="Industry deployment statistics">
+    <!-- 4. KEY FACTS -->
+    <div class="stats-bar" role="region" aria-label="Key product facts">
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="n" data-count="50" aria-label="50 factory clients">50+</div>
-            <div class="l">Factory Clients</div>
+            <div class="n" data-count="2" data-suffix=" min" aria-label="About 2 minutes to enrol an employee">2 min</div>
+            <div class="l">To Enrol an Employee</div>
           </div>
           <div class="stat-item">
-            <div class="n" data-count="120" aria-label="120 office deployments">120+</div>
-            <div class="l">Office Deployments</div>
+            <div class="n" data-count="1" data-suffix=" day" aria-label="Set up in 1 day">1 day</div>
+            <div class="l">To Set Up</div>
           </div>
           <div class="stat-item">
-            <div class="n" data-count="80" aria-label="80 warehouse sites">80+</div>
-            <div class="l">Warehouse Sites</div>
+            <div class="n" data-count="99.8" data-suffix="%" aria-label="99.8 percent accuracy">99.8%</div>
+            <div class="l">Accuracy</div>
           </div>
           <div class="stat-item">
-            <div class="n" data-count="99.8" aria-label="99.8 percent accuracy">99.8%</div>
-            <div class="l">% Accuracy</div>
+            <div class="n" data-count="24" data-suffix="/7" aria-label="24/7 support">24/7</div>
+            <div class="l">Support</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 5. CLIENT TESTIMONIALS -->
-    <section class="section section-alt" aria-labelledby="testimonials-heading">
+    <!-- 5. WHAT EACH INDUSTRY GETS -->
+    <section class="section section-alt" aria-labelledby="industry-benefits-heading">
       <div class="container">
         <div class="section-header reveal">
-          <span class="tag">Client Stories</span>
-          <h2 id="testimonials-heading">Trusted Across Industries</h2>
-          <p>Hear from the people who run attendance for offices, factories, and warehouses every day.</p>
+          <span class="tag">At a Glance</span>
+          <h2 id="industry-benefits-heading">What Mark Attendance Solves for You</h2>
+          <p>The everyday attendance problems we designed Mark Attendance to fix, by type of workplace.</p>
         </div>
         <div class="testi-grid" role="list">
 
-          <!-- Testimonial 1 — Office -->
+          <!-- Offices -->
           <article class="testi-card reveal d1" role="listitem">
-            <div class="testi-stars" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testi-text">"Mark Attendance transformed how we manage hybrid work in our corporate office. Our HR team now gets automated daily reports — no more chasing attendance sheets across three floors."</p>
-            <div class="testi-author">
-              <div class="testi-av" aria-hidden="true">AK</div>
-              <div>
-                <div class="testi-name">Aisha Khan</div>
-                <div class="testi-role">HR Manager · Tech Solutions Pvt. Ltd. — Corporate Office</div>
-              </div>
-            </div>
+            <h3>Offices</h3>
+            <p>Automated daily reports for HR instead of chasing attendance sheets across floors and departments, with shift scheduling for fixed and staggered hours.</p>
           </article>
 
-          <!-- Testimonial 2 — Factory -->
+          <!-- Factories & Mills -->
           <article class="testi-card reveal d2" role="listitem">
-            <div class="testi-stars" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testi-text">"We run three shifts across a 500-worker textile mill. Mark Attendance handles all our shift rotations and overtime tracking in real time. Safety compliance logs alone saved us hours of weekly admin."</p>
-            <div class="testi-author">
-              <div class="testi-av" aria-hidden="true">TR</div>
-              <div>
-                <div class="testi-name">Tariq Rehman</div>
-                <div class="testi-role">Operations Manager · Crescent Textile Mills — Factory Floor</div>
-              </div>
-            </div>
+            <h3>Factories &amp; Mills</h3>
+            <p>Multi-shift rotations, overtime, and night hours tracked automatically — and every check-in is tied to a face, so nobody can sign in for a colleague.</p>
           </article>
 
-          <!-- Testimonial 3 — Warehouse -->
+          <!-- Warehouses -->
           <article class="testi-card reveal d3" role="listitem">
-            <div class="testi-stars" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testi-text">"With 8 entry gates and over 300 workers, our warehouse was a nightmare to track manually. Mark Attendance gave us zone-level visibility and contractor time logs in a single dashboard. Outstanding."</p>
-            <div class="testi-author">
-              <div class="testi-av" aria-hidden="true">SB</div>
-              <div>
-                <div class="testi-name">Sara Baig</div>
-                <div class="testi-role">Logistics Supervisor · FastFlow Warehousing — Warehouse Facility</div>
-              </div>
-            </div>
+            <h3>Warehouses</h3>
+            <p>Entry and exit tracking across multiple gates, contractor time logs, and zone-level visibility in one dashboard — even when connectivity is weak, thanks to offline sync.</p>
           </article>
 
         </div>
@@ -461,7 +427,7 @@ require_once __DIR__ . '/includes/nav.php';
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
             Watch Industry Demo
           </button>
-          <a href="/contact#demo" class="btn btn-ghost btn-lg">
+          <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-ghost btn-lg">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Talk to an Expert
           </a>

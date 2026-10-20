@@ -1,12 +1,9 @@
 <?php
-$page_title          = 'Features | Mark Attendance – Face Recognition Attendance System';
+$page_title          = 'Features | Mark Attendance – Face Recognition Attendance';
 $meta_description    = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
-$canonical_url       = 'https://www.markattendance.com/features';
+$canonical_url       = 'https://markattendance.io/features';
 $og_description      = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
-$og_image            = 'https://www.markattendance.com/assets/og-image.png';
 $twitter_description = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-image.png';
-$noindex             = true;
 $current_page        = 'features';
 $json_ld = <<<'JSONLD'
 {
@@ -15,7 +12,7 @@ $json_ld = <<<'JSONLD'
     "name": "Mark Attendance",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Android, iOS, Web",
-    "url": "https://www.markattendance.com/features",
+    "url": "https://markattendance.io/features",
     "description": "Face recognition attendance management system for offices, factories, warehouses, and businesses of all sizes.",
     "offers": {
       "@type": "Offer",
@@ -36,12 +33,7 @@ $json_ld = <<<'JSONLD'
       "Mobile Offline Mode",
       "Custom Notifications",
       "Audit Log and Compliance"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "850"
-    }
+    ]
   }
 JSONLD;
 
@@ -50,13 +42,13 @@ require_once __DIR__ . '/includes/nav.php';
 ?>
 
 <!-- Main content -->
-  <main class="page-body">
+  <main class="page-body" id="main-content">
 
     <!-- 1. PAGE HERO -->
     <section class="page-hero" aria-label="Features hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="<?= SITE_BASE ?>/">Home</a>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span aria-current="page">Features</span>
         </nav>
@@ -238,14 +230,14 @@ require_once __DIR__ . '/includes/nav.php';
               </tr>
               <tr>
                 <td>Employees</td>
-                <td>Up to 25</td>
-                <td class="plan-col-highlight">Up to 200</td>
+                <td>Up to 50</td>
+                <td class="plan-col-highlight">Up to 500</td>
                 <td>Unlimited</td>
               </tr>
               <tr>
                 <td>Locations</td>
                 <td>1</td>
-                <td class="plan-col-highlight">Up to 10</td>
+                <td class="plan-col-highlight">Up to 5</td>
                 <td>Unlimited</td>
               </tr>
               <tr>
@@ -348,7 +340,7 @@ require_once __DIR__ . '/includes/nav.php';
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
             Watch Demo
           </button>
-          <a href="/contact#demo" class="btn btn-ghost btn-lg">
+          <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-ghost btn-lg">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Book Free Demo
           </a>

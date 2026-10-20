@@ -12,16 +12,29 @@ Options -Indexes -MultiViews
   # No RewriteBase — works for both virtual-host (attendance-website.test)
   # and subdirectory (localhost/attendance-website) setups.
 
-  # ── Force HTTPS (uncomment on live server) ─────────────────
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # ── Force HTTPS + no-www on the live domain ───────────────
+  # Only applies to markattendance.io, so local testing on http://localhost keeps working.
+  # Requires an SSL certificate on the host (e.g. cPanel AutoSSL / Let's Encrypt).
+  # X-Forwarded-Proto check avoids a redirect loop behind Cloudflare or a load balancer.
+  RewriteCond %{HTTP_HOST} ^markattendance\.io$ [NC]
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://markattendance.io%{REQUEST_URI} [L,R=301]
 
-  # ── Remove www (optional — uncomment to enforce non-www) ───
-  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+  # www.markattendance.io → markattendance.io
+  RewriteCond %{HTTP_HOST} ^www\.markattendance\.io$ [NC]
+  RewriteRule ^ https://markattendance.io%{REQUEST_URI} [L,R=301]
 
-  # ── Block direct access to includes/ ──────────────────────
+  # ── Block direct access to includes/, data/ and tools/ ────
   RewriteRule ^includes(/.*)?$ - [F,L]
+  RewriteRule ^data(/.*)?$ - [F,L]
+  RewriteRule ^tools(/.*)?$ - [F,L]
+
+  # ── Admin dashboard: every /admin* URL → admin.php ────────
+  RewriteRule ^admin(/.*)?$ admin.php [L,QSA]
+
+  # ── Sitemap is generated (skips pages hidden in /admin/seo) ─
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
 
   # ── Block direct access to the convert script if left ──────
   RewriteRule ^convert-to-php\.php$ - [F,L]
@@ -83,6 +96,9 @@ Options -Indexes -MultiViews
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   # Restrict browser features
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # Tell browsers to always use HTTPS (sent only over HTTPS, so it's harmless locally).
+  # Start at 1 day; raise max-age to 31536000 once you've confirmed HTTPS works everywhere.
+  Header always set Strict-Transport-Security "max-age=86400" "expr=%{HTTPS} == 'on'"
   # Hide server fingerprinting
   Header always unset X-Powered-By
   Header always unset Server
@@ -136,3 +152,8 @@ Options -Indexes -MultiViews
 
 # ─── Default Charset ──────────────────────────────────────────
 AddDefaultCharset UTF-8
+
+# ─── Custom 404 page ──────────────────────────────────────────
+# Path is from the domain root (works on the live site; on a local
+# subfolder install Apache falls back to its default 404 page).
+ErrorDocument 404 /404.php

@@ -1,12 +1,9 @@
 <?php
 $page_title          = 'Mobile App | Mark Attendance – Android & iOS Attendance App';
-$meta_description    = 'Download the Mark Attendance app for Android and iOS. Mark attendance with face recognition from your phone. Works offline. Free to download.';
-$canonical_url       = 'https://www.markattendance.com/mobile-app';
-$og_description      = 'Download the Mark Attendance app for Android and iOS. Mark attendance with face recognition from your phone. Works offline. Free to download.';
-$og_image            = 'https://www.markattendance.com/assets/og-mobile-app.jpg';
-$twitter_description = 'Download the Mark Attendance app for Android and iOS. Mark attendance with face recognition from your phone. Works offline. Free to download.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-mobile-app.jpg';
-$noindex             = true;
+$meta_description    = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
+$canonical_url       = 'https://markattendance.io/mobile-app';
+$og_description      = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
+$twitter_description = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
 $current_page        = 'mobile-app';
 $json_ld = <<<'JSONLD'
 {
@@ -14,7 +11,7 @@ $json_ld = <<<'JSONLD'
     "@type": "MobileApplication",
     "name": "Mark Attendance",
     "description": "Smart face recognition attendance management app for Android and iOS. Mark, manage, and monitor attendance anywhere, anytime.",
-    "url": "https://www.markattendance.com/mobile-app",
+    "url": "https://markattendance.io/mobile-app",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": ["Android", "iOS"],
     "offers": {
@@ -25,12 +22,7 @@ $json_ld = <<<'JSONLD'
     "author": {
       "@type": "Organization",
       "name": "Mark Attendance",
-      "url": "https://www.markattendance.com"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1200"
+      "url": "https://markattendance.io"
     },
     "featureList": [
       "Face Recognition Attendance",
@@ -39,10 +31,7 @@ $json_ld = <<<'JSONLD'
       "Push Notifications",
       "Report Export",
       "Multi-Device Sync"
-    ],
-    "screenshot": "https://www.markattendance.com/assets/app-screenshot.jpg",
-    "softwareVersion": "2.4.0",
-    "datePublished": "2023-01-01"
+    ]
   }
 JSONLD;
 
@@ -51,7 +40,7 @@ require_once __DIR__ . '/includes/nav.php';
 ?>
 
 <!-- ── Page Body ────────────────────────────────────────────── -->
-<main class="page-body">
+<main class="page-body" id="main-content">
 
   <!-- ══════════════════════════════════════════════════════════
        1. PAGE HERO — Dark App Section
@@ -64,28 +53,12 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="app-hero-content">
           <span class="tag light reveal d1">Mobile App</span>
           <h2 id="app-hero-heading" class="reveal d2">Attendance in Your Pocket</h2>
-          <p class="reveal d2">The Mark Attendance app brings face recognition attendance to any Android or iOS device. Mark, manage, and monitor — anywhere, anytime.</p>
+          <p class="reveal d2">The Mark Attendance app, coming soon to Android and iOS, will bring face recognition attendance to your phone or tablet. Mark, manage, and monitor — anywhere, anytime.</p>
 
           <!-- Download Badges -->
           <div class="app-badges reveal d3">
-            <a href="#" class="app-badge" aria-label="Download on Google Play">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M3.18 23.76a2 2 0 001.94-.22l12.1-7.05-3.03-3.03-11.01 10.3zm-1.6-21.27C1.22 2.9 1 3.4 1 4.05v15.9c0 .65.22 1.15.58 1.56l.08.08L11.03 12v-.21L1.66 2.4l-.08.09zM20.1 10.27l-2.77-1.61-3.38 3.34 3.38 3.34 2.79-1.63c.8-.46.8-1.98-.02-2.44zM5.12.46L17.22 7.5l-3.02 3.02L3.18.22A2 2 0 005.12.46z"/>
-              </svg>
-              <span>
-                <span class="badge-sub">Get it on</span>
-                <span class="badge-name">Google Play</span>
-              </span>
-            </a>
-            <a href="#" class="app-badge" aria-label="Download on the App Store">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              <span>
-                <span class="badge-sub">Download on the</span>
-                <span class="badge-name">App Store</span>
-              </span>
-            </a>
+            <?= store_badge('play', 'app-badge') ?>
+            <?= store_badge('apple', 'app-badge') ?>
           </div>
 
           <!-- Bullet Points -->
@@ -264,7 +237,7 @@ require_once __DIR__ . '/includes/nav.php';
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
           </div>
           <h3>Smart Notifications</h3>
-          <p>Get instant push notifications for late arrivals, absences, or when an employee's shift ends early.</p>
+          <p>Get instant push notifications for late arrivals, absences, or when an employee leaves before their shift ends.</p>
         </article>
 
         <!-- 5 -->
@@ -311,7 +284,7 @@ require_once __DIR__ . '/includes/nav.php';
             </div>
             <div>
               <h3>Android</h3>
-              <p class="platform-sub">Google Play Store</p>
+              <p class="platform-sub">Coming soon to Google Play</p>
             </div>
           </div>
           <ul class="req-list" aria-label="Android requirements">
@@ -361,7 +334,7 @@ require_once __DIR__ . '/includes/nav.php';
             </div>
             <div>
               <h3>iOS (iPhone &amp; iPad)</h3>
-              <p class="platform-sub">Apple App Store</p>
+              <p class="platform-sub">Coming soon to the App Store</p>
             </div>
           </div>
           <ul class="req-list" aria-label="iOS requirements">
@@ -561,27 +534,16 @@ require_once __DIR__ . '/includes/nav.php';
   ══════════════════════════════════════════════════════════════ -->
   <section class="cta-band" aria-labelledby="cta-download-heading">
     <div class="container">
+      <?php if (apps_live()): ?>
       <h2 id="cta-download-heading" class="reveal">Download Free. Start Today.</h2>
       <p class="reveal d1">Available on Android and iOS. No credit card required.</p>
+      <?php else: ?>
+      <h2 id="cta-download-heading" class="reveal">Coming Soon to Android &amp; iOS.</h2>
+      <p class="reveal d1">Want early access? <a href="<?= SITE_BASE ?>/contact?subject=demo#demo" class="cta-inline-link">Book a free demo</a> and we'll set your team up first.</p>
+      <?php endif; ?>
       <div class="dl-badges reveal d2">
-        <a href="#" class="dl-badge" aria-label="Download on Google Play">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3.18 23.76a2 2 0 001.94-.22l12.1-7.05-3.03-3.03-11.01 10.3zm-1.6-21.27C1.22 2.9 1 3.4 1 4.05v15.9c0 .65.22 1.15.58 1.56l.08.08L11.03 12v-.21L1.66 2.4l-.08.09zM20.1 10.27l-2.77-1.61-3.38 3.34 3.38 3.34 2.79-1.63c.8-.46.8-1.98-.02-2.44zM5.12.46L17.22 7.5l-3.02 3.02L3.18.22A2 2 0 005.12.46z"/>
-          </svg>
-          <span>
-            <span class="badge-sub">Get it on</span>
-            <span class="badge-name">Google Play</span>
-          </span>
-        </a>
-        <a href="#" class="dl-badge" aria-label="Download on the App Store">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          <span>
-            <span class="badge-sub">Download on the</span>
-            <span class="badge-name">App Store</span>
-          </span>
-        </a>
+        <?= store_badge('play', 'dl-badge') ?>
+        <?= store_badge('apple', 'dl-badge') ?>
       </div>
     </div>
   </section>

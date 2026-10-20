@@ -1,20 +1,23 @@
 <?php
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/contact-handler.php';
+$form = contact_form_state();   // handles POST (JSON reply or redirect) before any output
+$fv   = fn(string $k): string => htmlspecialchars($form['values'][$k] ?? '', ENT_QUOTES, 'UTF-8');
+$ferr = fn(string $k): string => isset($form['errors'][$k]) ? ' has-error' : '';
+
 $page_title          = 'Contact Us | Mark Attendance – Get a Free Demo';
-$meta_description    = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 24 hours.';
-$canonical_url       = 'https://www.markattendance.com/contact';
-$og_description      = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 24 hours.';
-$og_image            = 'https://www.markattendance.com/assets/og-image.png';
-$twitter_description = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 24 hours.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-image.png';
-$noindex             = true;
+$meta_description    = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 1 business day.';
+$canonical_url       = 'https://markattendance.io/contact';
+$og_description      = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 1 business day.';
+$twitter_description = 'Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support. We reply within 1 business day.';
 $current_page        = 'contact';
 $json_ld = <<<'JSONLD'
 {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "@id": "https://www.markattendance.com/contact",
+    "@id": "https://markattendance.io/contact",
     "name": "Contact Mark Attendance",
-    "url": "https://www.markattendance.com/contact",
+    "url": "https://markattendance.io/contact",
     "description": "Contact the Mark Attendance team. Get a free demo, ask about pricing, or request technical support.",
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -23,24 +26,24 @@ $json_ld = <<<'JSONLD'
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.markattendance.com/"
+          "item": "https://markattendance.io/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Contact",
-          "item": "https://www.markattendance.com/contact"
+          "item": "https://markattendance.io/contact"
         }
       ]
     },
     "mainEntity": {
       "@type": "Organization",
-      "@id": "https://www.markattendance.com/#organization",
+      "@id": "https://markattendance.io/#organization",
       "name": "Mark Attendance",
-      "url": "https://www.markattendance.com/",
-      "logo": "https://www.markattendance.com/assets/favicon.svg",
-      "email": "info@markattendance.com",
-      "telephone": "+92-300-0000000",
+      "url": "https://markattendance.io/",
+      "logo": "https://markattendance.io/assets/icon-512.png",
+      "email": "info@markattendance.io",
+      "telephone": "+92-306-4164077",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Lahore",
@@ -48,8 +51,8 @@ $json_ld = <<<'JSONLD'
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+92-300-0000000",
-        "email": "info@markattendance.com",
+        "telephone": "+92-306-4164077",
+        "email": "info@markattendance.io",
         "contactType": "customer support",
         "areaServed": "PK",
         "availableLanguage": "English",
@@ -75,13 +78,13 @@ require_once __DIR__ . '/includes/nav.php';
     <section class="page-hero" aria-labelledby="contact-hero-heading">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="<?= SITE_BASE ?>/">Home</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">Contact</span>
         </nav>
         <span class="section-tag">Get in Touch</span>
         <h1 id="contact-hero-heading">Let's Talk — We're Here to Help</h1>
-        <p>Book a free demo, ask about pricing, or just say hello. Our team responds within 24 hours.</p>
+        <p>Book a free demo, ask about pricing, or just say hello. Our team responds within 1 business day.</p>
       </div>
     </section>
 
@@ -104,7 +107,10 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div>
                 <div class="cd-lbl">Email</div>
-                <div class="cd-val"><a href="mailto:info@markattendance.com">info@markattendance.com</a></div>
+                <div class="cd-val">
+                  <a href="mailto:<?= CONTACT_EMAIL ?>"><?= CONTACT_EMAIL ?></a>
+                  <button type="button" class="copy-btn" data-copy="<?= CONTACT_EMAIL ?>" aria-label="Copy email address">Copy</button>
+                </div>
               </div>
             </div>
 
@@ -116,7 +122,20 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div>
                 <div class="cd-lbl">Phone</div>
-                <div class="cd-val"><a href="tel:+923000000000">+92 300 0000000</a></div>
+                <div class="cd-val">
+                  <a href="tel:<?= CONTACT_PHONE_E164 ?>"><?= CONTACT_PHONE ?></a>
+                  <button type="button" class="copy-btn" data-copy="<?= CONTACT_PHONE ?>" aria-label="Copy phone number">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="cd-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.4 3 4 8.38 4 15.01c0 2.12.56 4.19 1.62 6.01L4 29l8.17-1.58a12.04 12.04 0 003.87.64h.01C22.68 28.06 28 22.68 28 16.05 28 9.4 22.68 3 16.04 3zm0 22.9h-.01a9.9 9.9 0 01-5.05-1.38l-.36-.21-4.85.94.97-4.71-.24-.38a9.86 9.86 0 01-1.52-5.15c0-5.47 4.46-9.92 9.95-9.92 2.66 0 5.15 1.04 7.03 2.92a9.85 9.85 0 012.91 7.02c0 5.48-4.46 9.87-9.83 9.87z"/></svg>
+              </div>
+              <div>
+                <div class="cd-lbl">WhatsApp</div>
+                <div class="cd-val"><a href="<?= htmlspecialchars(whatsapp_url()) ?>" target="_blank" rel="noopener">Chat with us on WhatsApp</a></div>
               </div>
             </div>
 
@@ -133,31 +152,9 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
             </div>
 
-            <div class="social-row" aria-label="Social media links">
-              <a href="#" class="soc-btn" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                </svg>
-              </a>
-              <a href="#" class="soc-btn" aria-label="Twitter/X">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="#" class="soc-btn" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-              </a>
-              <a href="#" class="soc-btn" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-              </a>
-            </div>
+            <?php $social = social_links("soc-btn"); if ($social !== ""): ?>
+            <div class="social-row" aria-label="Social media links"><?= $social ?></div>
+            <?php endif; ?>
 
             <div class="reply-note" role="note" aria-label="Response time note">
               <span class="reply-dot" aria-hidden="true"></span>
@@ -169,40 +166,50 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="form-card reveal d2" role="region" aria-labelledby="contact-form-heading">
             <h3 id="contact-form-heading">Send Us a Message</h3>
 
-            <form id="contact-form" novalidate aria-describedby="form-instructions">
+            <form id="contact-form" action="<?= SITE_BASE ?>/contact" method="post" novalidate aria-describedby="form-instructions"<?= $form['sent'] ? ' hidden' : '' ?>>
               <p id="form-instructions" class="reply-note form-note-top">
                 <span class="reply-dot" aria-hidden="true"></span>
                 Fields marked with * are required.
               </p>
 
+              <div class="form-alert" id="form-alert" role="alert" tabindex="-1"<?= $form['error'] ? '' : ' hidden' ?>>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span id="form-alert-text"><?= htmlspecialchars($form['error'] ?? '') ?></span>
+              </div>
+
               <div class="form-row">
-                <div class="form-group" id="group-name">
+                <div class="form-group<?= $ferr('name') ?>" id="group-name">
                   <label for="field-name">Full Name <span aria-hidden="true">*</span></label>
                   <input
                     type="text"
                     id="field-name"
                     name="name"
                     placeholder="Your full name"
+                    value="<?= $fv('name') ?>"
                     required
+                    minlength="2"
+                    maxlength="100"
                     aria-required="true"
                     aria-describedby="error-name"
                     autocomplete="name"
                   >
-                  <span class="field-error" id="error-name" role="alert">Please enter your full name.</span>
+                  <span class="field-error" id="error-name"><?= $form['errors']['name'] ?? 'Please enter your full name.' ?></span>
                 </div>
-                <div class="form-group" id="group-email">
+                <div class="form-group<?= $ferr('email') ?>" id="group-email">
                   <label for="field-email">Email Address <span aria-hidden="true">*</span></label>
                   <input
                     type="email"
                     id="field-email"
                     name="email"
                     placeholder="you@company.com"
+                    value="<?= $fv('email') ?>"
                     required
+                    maxlength="254"
                     aria-required="true"
                     aria-describedby="error-email"
                     autocomplete="email"
                   >
-                  <span class="field-error" id="error-email" role="alert">Please enter a valid email address.</span>
+                  <span class="field-error" id="error-email"><?= $form['errors']['email'] ?? 'Please enter a valid email address.' ?></span>
                 </div>
               </div>
 
@@ -214,22 +221,29 @@ require_once __DIR__ . '/includes/nav.php';
                     id="field-company"
                     name="company"
                     placeholder="Your company name"
+                    value="<?= $fv('company') ?>"
+                    maxlength="120"
                     autocomplete="organization"
                   >
                 </div>
-                <div class="form-group">
+                <div class="form-group<?= $ferr('phone') ?>" id="group-phone">
                   <label for="field-phone">Phone Number</label>
                   <input
                     type="tel"
                     id="field-phone"
                     name="phone"
-                    placeholder="+92 300 0000000"
+                    placeholder="+92 300 1234567"
+                    value="<?= $fv('phone') ?>"
+                    maxlength="30"
+                    pattern="\+?[0-9 \(\)\-]{7,20}"
+                    aria-describedby="error-phone"
                     autocomplete="tel"
                   >
+                  <span class="field-error" id="error-phone"><?= $form['errors']['phone'] ?? 'Please enter a valid phone number, e.g. +92 300 1234567.' ?></span>
                 </div>
               </div>
 
-              <div class="form-group" id="group-subject">
+              <div class="form-group<?= $ferr('subject') ?>" id="group-subject">
                 <label for="field-subject">How can we help? <span aria-hidden="true">*</span></label>
                 <select
                   id="field-subject"
@@ -238,38 +252,53 @@ require_once __DIR__ . '/includes/nav.php';
                   aria-required="true"
                   aria-describedby="error-subject"
                 >
-                  <option value="" disabled selected>Select an option...</option>
-                  <option value="demo">Request a Demo</option>
-                  <option value="pricing">Pricing Enquiry</option>
-                  <option value="support">Technical Support</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="general">General Question</option>
+                  <option value="" disabled<?= $fv('subject') === '' ? ' selected' : '' ?>>Select an option...</option>
+                  <?php foreach (CONTACT_SUBJECTS as $key => $label): ?>
+                  <option value="<?= $key ?>"<?= $fv('subject') === $key ? ' selected' : '' ?>><?= $label ?></option>
+                  <?php endforeach; ?>
                 </select>
-                <span class="field-error" id="error-subject" role="alert">Please select how we can help.</span>
+                <span class="field-error" id="error-subject"><?= $form['errors']['subject'] ?? 'Please select how we can help.' ?></span>
               </div>
 
-              <div class="form-group" id="group-message">
+              <div class="form-group<?= $ferr('message') ?>" id="group-message">
                 <label for="field-message">Message <span aria-hidden="true">*</span></label>
                 <textarea
                   id="field-message"
                   name="message"
                   placeholder="Tell us about your organisation and what you're looking for..."
                   required
+                  minlength="10"
+                  maxlength="5000"
                   aria-required="true"
                   aria-describedby="error-message"
-                ></textarea>
-                <span class="field-error" id="error-message" role="alert">Please enter a message.</span>
+                ><?= $fv('message') ?></textarea>
+                <span class="field-error" id="error-message"><?= $form['errors']['message'] ?? 'Please enter a message (at least 10 characters).' ?></span>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-full" aria-label="Submit contact form">
-                Send Message &rarr;
+              <!-- Spam trap: hidden from people, bots fill it in -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="field-website">Leave this empty</label>
+                <input type="text" id="field-website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+              <!-- Campaign tracking — filled by main.js from stored UTM parameters -->
+              <?php foreach (TRACKING_FIELDS as $key): ?>
+              <input type="hidden" name="<?= $key ?>" data-track="<?= $key ?>">
+              <?php endforeach; ?>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                <span class="btn-label">Send Message &rarr;</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
               </button>
             </form>
 
-            <div id="form-success" class="form-success" role="status" aria-live="polite">
-              <div class="check-icon" aria-hidden="true">&#9989;</div>
+            <div id="form-success" class="form-success" role="status" aria-live="polite" tabindex="-1"<?= $form['sent'] ? ' style="display:block"' : '' ?>>
+              <div class="success-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
               <h3>Message Sent!</h3>
               <p>Thank you for reaching out. We'll get back to you within 1 business day.</p>
+              <p class="form-success-alt">Need a faster answer? <a href="<?= htmlspecialchars(whatsapp_url()) ?>" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
+              <button type="button" class="btn btn-outline btn-sm" id="form-reset">Send another message</button>
             </div>
           </div>
 
@@ -429,16 +458,17 @@ require_once __DIR__ . '/includes/nav.php';
           <p>We're based in Lahore, Pakistan. Enterprise clients can arrange on-site visits and demonstrations.</p>
         </div>
 
-        <div class="map-placeholder reveal" role="img" aria-label="Map placeholder for Lahore, Pakistan location">
+        <div class="map-placeholder reveal">
           <div class="map-pin-label">
-            &#128205; Lahore, Pakistan &mdash; [Map will be embedded here]
+            &#128205; Lahore, Pakistan
           </div>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Lahore%2C+Pakistan" class="btn btn-outline btn-sm map-open" target="_blank" rel="noopener">Open in Google Maps</a>
           <address class="map-address">
             Mark Attendance HQ<br>
             Lahore, Punjab, Pakistan<br>
-            <a href="mailto:info@markattendance.com" class="map-link">info@markattendance.com</a>
+            <a href="mailto:info@markattendance.io" class="map-link">info@markattendance.io</a>
             &nbsp;&middot;&nbsp;
-            <a href="tel:+923000000000" class="map-link">+92 300 0000000</a>
+            <a href="tel:<?= CONTACT_PHONE_E164 ?>" class="map-link"><?= CONTACT_PHONE ?></a>
           </address>
         </div>
       </div>

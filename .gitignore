@@ -1,0 +1,6 @@
+# Contact-form leads and logs (contain personal data)
+data/*
+!data/.htaccess
+
+# Server-specific settings (database credentials, admin password hash)
+includes/config.local.php

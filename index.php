@@ -1,12 +1,9 @@
 <?php
 $page_title          = 'Mark Attendance | Face Recognition Attendance System';
-$meta_description    = 'Mark Attendance is a smart face recognition attendance system for offices, factories & warehouses. Contactless, accurate, real-time. Download the app.';
-$canonical_url       = 'https://www.markattendance.com/';
+$meta_description    = 'Mark Attendance is a smart face recognition attendance system for offices, factories & warehouses. Contactless, accurate and real-time.';
+$canonical_url       = 'https://markattendance.io/';
 $og_description      = 'Smart face recognition attendance management. Accurate, contactless, real-time tracking for businesses of all sizes.';
-$og_image            = 'https://www.markattendance.com/assets/og-image.jpg';
 $twitter_description = 'Smart face recognition attendance for offices, factories, warehouses.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-image.jpg';
-$noindex             = true;
 $current_page        = 'home';
 $json_ld = <<<'JSONLD'
 {
@@ -14,13 +11,13 @@ $json_ld = <<<'JSONLD'
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.markattendance.com/#organization",
+        "@id": "https://markattendance.io/#organization",
         "name": "Mark Attendance",
-        "url": "https://www.markattendance.com/",
-        "logo": "https://www.markattendance.com/assets/favicon.svg",
+        "url": "https://markattendance.io/",
+        "logo": "https://markattendance.io/assets/icon-512.png",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+92-300-0000000",
+          "telephone": "+92-306-4164077",
           "contactType": "customer support",
           "areaServed": "PK",
           "availableLanguage": "English"
@@ -34,12 +31,12 @@ $json_ld = <<<'JSONLD'
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "https://www.markattendance.com/#app",
+        "@id": "https://markattendance.io/#app",
         "name": "Mark Attendance",
         "operatingSystem": "Android, iOS, Web",
         "applicationCategory": "BusinessApplication",
         "description": "Smart face recognition attendance management system for offices, factories, and warehouses. Contactless, accurate, real-time.",
-        "url": "https://www.markattendance.com/",
+        "url": "https://markattendance.io/",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -47,12 +44,12 @@ $json_ld = <<<'JSONLD'
           "description": "Free demo available"
         },
         "publisher": {
-          "@id": "https://www.markattendance.com/#organization"
+          "@id": "https://markattendance.io/#organization"
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://www.markattendance.com/#faq",
+        "@id": "https://markattendance.io/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -83,7 +80,7 @@ $json_ld = <<<'JSONLD'
             "name": "How long does it take to enroll employees?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Enrolling a single employee takes less than 2 minutes. For bulk enrollment, we provide on-site setup assistance. Most organizations are fully enrolled within a day."
+              "text": "Enrolling a single employee takes less than 2 minutes. For bulk enrollment, we provide on-site setup assistance. Most organisations are fully enrolled within a day."
             }
           },
           {
@@ -126,16 +123,16 @@ require_once __DIR__ . '/includes/nav.php';
               <span class="pulse-dot" aria-hidden="true"></span>
               Live &middot; Real-Time Tracking
             </div>
-            <h1>Mark Attendance with <span class="accent">Face Recognition</span><br>Be on Right Time.</h1>
-            <p class="hero-sub">The smart, contactless attendance management system trusted by offices, factories, and warehouses. Accurate identification in under a second.</p>
+            <h1>Mark Attendance with <span class="accent">Face Recognition</span><br>Be on Time.</h1>
+            <p class="hero-sub">The smart, contactless attendance management system built for offices, factories, and warehouses. Accurate identification in under a second.</p>
             <div class="hero-btns">
-              <a href="/contact#demo" class="btn btn-primary" aria-label="Get a free demo of Mark Attendance">Get a Free Demo</a>
-              <a href="/mobile-app" class="btn btn-outline" aria-label="Download the Mark Attendance app">Download the App</a>
+              <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-primary" aria-label="Get a free demo of Mark Attendance">Get a Free Demo</a>
+              <a href="<?= SITE_BASE ?>/mobile-app" class="btn btn-outline" aria-label="Download the Mark Attendance app">Download the App</a>
             </div>
             <div class="hero-trust" aria-label="Key statistics">
               <div class="hero-trust-item">
-                <strong>10,000+</strong>
-                <span>Employees Tracked</span>
+                <strong>~2 min</strong>
+                <span>To Enrol an Employee</span>
               </div>
               <div class="hero-trust-sep" aria-hidden="true"></div>
               <div class="hero-trust-item">
@@ -144,8 +141,8 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div class="hero-trust-sep" aria-hidden="true"></div>
               <div class="hero-trust-item">
-                <strong>500+</strong>
-                <span>Organizations</span>
+                <strong>1 day</strong>
+                <span>To Set Up</span>
               </div>
             </div>
           </div>
@@ -188,20 +185,20 @@ require_once __DIR__ . '/includes/nav.php';
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item reveal d1">
-            <strong class="stat-num" data-count="10000" data-suffix="+" aria-label="10,000 plus employees tracked">0</strong>
-            <span>Employees Tracked</span>
+            <strong class="stat-num" data-count="2" data-suffix=" min" aria-label="About 2 minutes to enrol an employee">0</strong>
+            <span>To Enrol an Employee</span>
           </div>
           <div class="stat-item reveal d2">
             <strong class="stat-num" data-count="99.8" data-suffix="%" aria-label="99.8 percent accuracy">0</strong>
-            <span>% Accuracy</span>
+            <span>Accuracy</span>
           </div>
           <div class="stat-item reveal d3">
-            <strong class="stat-num" data-count="500" data-suffix="+" aria-label="500 plus organizations">0</strong>
-            <span>Organizations</span>
+            <strong class="stat-num" data-count="1" data-suffix=" day" aria-label="Set up in 1 day">0</strong>
+            <span>To Set Up</span>
           </div>
           <div class="stat-item reveal d4">
             <strong class="stat-num" data-count="24" data-suffix="/7" aria-label="24/7 support">0</strong>
-            <span>Support (hrs)</span>
+            <span>Support</span>
           </div>
         </div>
       </div>
@@ -385,28 +382,28 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="ind-ic" aria-hidden="true">&#127970;</div>
             <h3>Offices</h3>
             <p>Track employee punctuality, manage shifts, and automate payroll-ready reports for corporate offices.</p>
-            <a href="/industries" class="more" aria-label="Learn more about Mark Attendance for offices">Learn more &rarr;</a>
+            <a href="<?= SITE_BASE ?>/industries#offices" class="more" aria-label="Learn more about Mark Attendance for offices">Learn more &rarr;</a>
           </article>
 
           <article class="ind-card v-blue reveal d2" aria-label="Factories and Mills industry">
             <div class="ind-ic" aria-hidden="true">&#127981;</div>
             <h3>Factories &amp; Mills</h3>
             <p>Ruggedised attendance for factory floors with shift rotation, overtime tracking, and worker safety compliance.</p>
-            <a href="/industries" class="more" aria-label="Learn more about Mark Attendance for factories and mills">Learn more &rarr;</a>
+            <a href="<?= SITE_BASE ?>/industries#factories" class="more" aria-label="Learn more about Mark Attendance for factories and mills">Learn more &rarr;</a>
           </article>
 
           <article class="ind-card v-orange reveal d3" aria-label="Warehouses industry">
             <div class="ind-ic" aria-hidden="true">&#128230;</div>
             <h3>Warehouses</h3>
             <p>Real-time workforce visibility across large warehouse spaces with multi-entry-point tracking.</p>
-            <a href="/industries" class="more" aria-label="Learn more about Mark Attendance for warehouses">Learn more &rarr;</a>
+            <a href="<?= SITE_BASE ?>/industries#warehouses" class="more" aria-label="Learn more about Mark Attendance for warehouses">Learn more &rarr;</a>
           </article>
 
           <article class="ind-card v-coral reveal d4" aria-label="All businesses industry">
             <div class="ind-ic" aria-hidden="true">&#128188;</div>
             <h3>All Businesses</h3>
             <p>From startups to enterprises — scalable attendance management that grows with your organisation.</p>
-            <a href="/industries" class="more" aria-label="Learn more about Mark Attendance for all businesses">Learn more &rarr;</a>
+            <a href="<?= SITE_BASE ?>/industries#businesses" class="more" aria-label="Learn more about Mark Attendance for all businesses">Learn more &rarr;</a>
           </article>
 
         </div>
@@ -424,14 +421,8 @@ require_once __DIR__ . '/includes/nav.php';
             <h2 id="app-heading">Take Attendance on the Go</h2>
             <p>Our mobile app brings the full power of Mark Attendance to your pocket. Whether you're in the office, on the factory floor, or managing a remote site, you stay in control.</p>
             <div class="app-badges" aria-label="Download the app">
-              <a href="#" class="app-badge" aria-label="Download Mark Attendance on Google Play">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76a2 2 0 001.94-.22l12.1-7.05-3.03-3.03-11.01 10.3zm-1.6-21.27C1.22 2.9 1 3.4 1 4.05v15.9c0 .65.22 1.15.58 1.56l.08.08L11.03 12v-.21L1.66 2.4l-.08.09zM20.1 10.27l-2.77-1.61-3.38 3.34 3.38 3.34 2.79-1.63c.8-.46.8-1.98-.02-2.44zM5.12.46L17.22 7.5l-3.02 3.02L3.18.22A2 2 0 005.12.46z"/></svg>
-                <span><span class="badge-sub">Get it on</span><span class="badge-name">Google Play</span></span>
-              </a>
-              <a href="#" class="app-badge" aria-label="Download Mark Attendance on the App Store">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                <span><span class="badge-sub">Download on the</span><span class="badge-name">App Store</span></span>
-              </a>
+              <?= store_badge('play', 'app-badge') ?>
+              <?= store_badge('apple', 'app-badge') ?>
             </div>
             <div class="app-bullets" aria-label="App features list">
               <div class="app-bullet">
@@ -499,7 +490,7 @@ require_once __DIR__ . '/includes/nav.php';
                     </div>
                     <div class="mini-face">&#128522;</div>
                     <div class="mini-name">Ahmed Khan</div>
-                    <div class="mini-status">&#10003; Recognized</div>
+                    <div class="mini-status">&#10003; Recognised</div>
                   </div>
                 </div>
               </div>
@@ -510,69 +501,30 @@ require_once __DIR__ . '/includes/nav.php';
       </div>
     </section>
 
-    <!-- ===================== TESTIMONIALS ===================== -->
-    <section class="section section-alt" aria-labelledby="testi-heading">
+    <!-- ===================== WHY MARK ATTENDANCE ===================== -->
+    <section class="section section-alt" aria-labelledby="why-heading">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Testimonials</span>
-          <h2 id="testi-heading">Trusted by Organizations Across Pakistan</h2>
-          <p>See what our customers say about transforming their attendance management.</p>
+          <span class="section-tag">Why Mark Attendance</span>
+          <h2 id="why-heading">Why Teams Choose Mark Attendance</h2>
+          <p>A new, Lahore-built attendance platform designed around the problems Pakistani workplaces face every day.</p>
         </div>
         <div class="testi-grid">
 
-          <blockquote class="testi-card reveal d1" aria-label="Testimonial from Tariq Mahmood">
-            <div class="testi-stars" aria-label="5 stars rating" role="img">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="testi-quote">"Mark Attendance transformed how we manage our 200-person factory. Zero buddy-punching, accurate records every day."</p>
-            <footer class="testi-author">
-              <div class="testi-avatar testi-av-1" aria-hidden="true">TM</div>
-              <div class="testi-info">
-                <strong>Tariq Mahmood</strong>
-                <span>Operations Manager, Lahore Mills</span>
-              </div>
-            </footer>
-          </blockquote>
+          <article class="testi-card reveal d1" aria-label="No buddy-punching">
+            <h3>No More Buddy-Punching</h3>
+            <p>Attendance is tied to each employee's face, so nobody can sign in for a colleague. No cards, no PINs, no register books to falsify.</p>
+          </article>
 
-          <blockquote class="testi-card reveal d2" aria-label="Testimonial from Sarah Qureshi">
-            <div class="testi-stars" aria-label="5 stars rating" role="img">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="testi-quote">"Setup was incredibly fast. Within a day our whole office was enrolled and the reports were flowing."</p>
-            <footer class="testi-author">
-              <div class="testi-avatar testi-av-2" aria-hidden="true">SQ</div>
-              <div class="testi-info">
-                <strong>Sarah Qureshi</strong>
-                <span>HR Director, TechCorp Islamabad</span>
-              </div>
-            </footer>
-          </blockquote>
+          <article class="testi-card reveal d2" aria-label="Set up in a day">
+            <h3>Set Up in a Day</h3>
+            <p>Enrolling an employee takes about 2 minutes, and most organisations can be fully set up in under a day. No complex hardware — just a device with a camera.</p>
+          </article>
 
-          <blockquote class="testi-card reveal d3" aria-label="Testimonial from Bilal Ahmed">
-            <div class="testi-stars" aria-label="5 stars rating" role="img">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="testi-quote">"The mobile app is fantastic. Our warehouse supervisors love the real-time dashboard."</p>
-            <footer class="testi-author">
-              <div class="testi-avatar testi-av-3" aria-hidden="true">BA</div>
-              <div class="testi-info">
-                <strong>Bilal Ahmed</strong>
-                <span>Warehouse Manager, Karachi Logistics</span>
-              </div>
-            </footer>
-          </blockquote>
+          <article class="testi-card reveal d3" aria-label="Works offline">
+            <h3>Works Offline</h3>
+            <p>Weak connectivity at the gate or on the factory floor? Attendance is recorded locally and synced automatically when the connection is restored.</p>
+          </article>
 
         </div>
       </div>
@@ -584,7 +536,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="section-header reveal">
           <span class="section-tag">FAQ</span>
           <h2 id="faq-heading">Frequently Asked Questions</h2>
-          <p>Everything you need to know about Mark Attendance. Can't find an answer? <a href="/contact">Contact us</a>.</p>
+          <p>Everything you need to know about Mark Attendance. Can't find an answer? <a href="<?= SITE_BASE ?>/contact">Contact us</a>.</p>
         </div>
         <div class="faq-list" role="list">
 
@@ -632,7 +584,7 @@ require_once __DIR__ . '/includes/nav.php';
               </button>
             </div>
             <div class="faq-a" id="faq-a-4" hidden>
-              <p>Enrolling a single employee takes less than 2 minutes. For bulk enrollment, we provide on-site setup assistance. Most organizations are fully enrolled within a day.</p>
+              <p>Enrolling a single employee takes less than 2 minutes. For bulk enrollment, we provide on-site setup assistance. Most organisations are fully enrolled within a day.</p>
             </div>
           </div>
 
@@ -669,10 +621,10 @@ require_once __DIR__ . '/includes/nav.php';
       <div class="container">
         <div class="cta-band-inner reveal">
           <h2 id="cta-heading">Ready to Eliminate Attendance Fraud?</h2>
-          <p>Join 500+ organizations already using Mark Attendance. Get set up in under a day.</p>
+          <p>Be one of the first businesses in Pakistan to switch to contactless attendance. Get set up in under a day.</p>
           <div class="cta-btns">
             <button class="btn btn-ghost" data-action="watch-demo" aria-label="Watch a demo of Mark Attendance">Watch Demo</button>
-            <a href="/contact#demo" class="btn btn-outline-white" aria-label="Get a free demo of Mark Attendance">Get Free Demo</a>
+            <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-outline-white" aria-label="Get a free demo of Mark Attendance">Get Free Demo</a>
           </div>
         </div>
       </div>

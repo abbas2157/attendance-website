@@ -1,19 +1,16 @@
 <?php
 $page_title          = 'Pricing | Mark Attendance – Simple, Transparent Plans';
-$meta_description    = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Start free, upgrade anytime.';
-$canonical_url       = 'https://www.markattendance.com/pricing';
-$og_description      = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Start free, upgrade anytime.';
-$og_image            = 'https://www.markattendance.com/assets/og-pricing.png';
-$twitter_description = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Start free, upgrade anytime.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-pricing.png';
-$noindex             = true;
+$meta_description    = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
+$canonical_url       = 'https://markattendance.io/pricing';
+$og_description      = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
+$twitter_description = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
 $current_page        = 'pricing';
 $json_ld = <<<'JSONLD'
 {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing | Mark Attendance",
-    "url": "https://www.markattendance.com/pricing",
+    "url": "https://markattendance.io/pricing",
     "description": "Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans.",
     "mainEntity": {
       "@type": "ItemList",
@@ -37,7 +34,7 @@ $json_ld = <<<'JSONLD'
             "seller": {
               "@type": "Organization",
               "name": "Mark Attendance",
-              "url": "https://www.markattendance.com"
+              "url": "https://markattendance.io"
             }
           }
         },
@@ -60,7 +57,7 @@ $json_ld = <<<'JSONLD'
             "seller": {
               "@type": "Organization",
               "name": "Mark Attendance",
-              "url": "https://www.markattendance.com"
+              "url": "https://markattendance.io"
             }
           }
         },
@@ -76,7 +73,7 @@ $json_ld = <<<'JSONLD'
             "seller": {
               "@type": "Organization",
               "name": "Mark Attendance",
-              "url": "https://www.markattendance.com"
+              "url": "https://markattendance.io"
             }
           }
         }
@@ -90,13 +87,13 @@ require_once __DIR__ . '/includes/nav.php';
 ?>
 
 <!-- Main content -->
-  <main class="page-body">
+  <main class="page-body" id="main-content">
 
     <!-- 1. PAGE HERO -->
     <section class="page-hero" aria-label="Pricing hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="<?= SITE_BASE ?>/">Home</a>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span aria-current="page">Pricing</span>
         </nav>
@@ -121,7 +118,7 @@ require_once __DIR__ . '/includes/nav.php';
             aria-label="Switch to annual billing"
           ></button>
           <span class="toggle-label" id="label-annual">
-            Annual&nbsp;<span class="save-badge">Save 18%</span>
+            Annual&nbsp;<span class="save-badge">Save 17%</span>
           </span>
         </div>
 
@@ -165,12 +162,12 @@ require_once __DIR__ . '/includes/nav.php';
                 API access
               </li>
             </ul>
-            <a href="/contact" class="btn btn-outline btn-full">Get Started</a>
+            <a href="<?= SITE_BASE ?>/contact" class="btn btn-outline btn-full">Get Started</a>
           </div>
 
           <!-- BUSINESS (popular) -->
-          <div class="pricing-card popular reveal d2" aria-label="Business plan – Most Popular">
-            <div class="popular-badge" aria-label="Most popular plan">Most Popular</div>
+          <div class="pricing-card popular reveal d2" aria-label="Business plan – Recommended">
+            <div class="popular-badge" aria-label="Recommended plan">Recommended</div>
             <div class="plan-name">Business</div>
 
             <div class="plan-price-monthly">
@@ -207,7 +204,7 @@ require_once __DIR__ . '/includes/nav.php';
                 Priority support + API access
               </li>
             </ul>
-            <a href="/contact#demo" class="btn btn-primary btn-full">Start Free Trial</a>
+            <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-primary btn-full">Start Free Trial</a>
           </div>
 
           <!-- ENTERPRISE -->
@@ -248,7 +245,7 @@ require_once __DIR__ . '/includes/nav.php';
                 SLA &amp; on-site support
               </li>
             </ul>
-            <a href="/contact" class="btn btn-outline btn-full">Talk to Sales</a>
+            <a href="<?= SITE_BASE ?>/contact" class="btn btn-outline btn-full">Talk to Sales</a>
           </div>
 
         </div><!-- /pricing-grid -->
@@ -505,7 +502,7 @@ require_once __DIR__ . '/includes/nav.php';
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             Compare Features
           </a>
-          <a href="/contact" class="btn btn-ghost">
+          <a href="<?= SITE_BASE ?>/contact" class="btn btn-ghost">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4v4l3 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Talk to Sales
           </a>

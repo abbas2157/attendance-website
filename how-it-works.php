@@ -1,19 +1,16 @@
 <?php
 $page_title          = 'How It Works | Mark Attendance – Face Recognition Attendance';
 $meta_description    = 'Learn how Mark Attendance works in 4 simple steps: register faces, scan to mark, auto-record, view reports. Up and running in under a day.';
-$canonical_url       = 'https://www.markattendance.com/how-it-works';
+$canonical_url       = 'https://markattendance.io/how-it-works';
 $og_description      = 'Learn how Mark Attendance works in 4 simple steps: register faces, scan to mark, auto-record, view reports. Up and running in under a day.';
-$og_image            = 'https://www.markattendance.com/assets/og-how-it-works.png';
 $twitter_description = 'Learn how Mark Attendance works in 4 simple steps: register faces, scan to mark, auto-record, view reports. Up and running in under a day.';
-$twitter_image       = 'https://www.markattendance.com/assets/og-how-it-works.png';
-$noindex             = true;
 $current_page        = 'how-it-works';
 $json_ld = <<<'JSONLD'
 {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Mark Attendance",
-    "url": "https://www.markattendance.com",
+    "url": "https://markattendance.io",
     "description": "Face recognition attendance management system for offices, factories, warehouses, and businesses of all sizes.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Android, iOS, Web",
@@ -29,12 +26,7 @@ $json_ld = <<<'JSONLD'
       "Automated reporting",
       "Cloud data storage",
       "Mobile app support"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "320"
-    }
+    ]
   }
 JSONLD;
 
@@ -43,13 +35,13 @@ require_once __DIR__ . '/includes/nav.php';
 ?>
 
 <!-- ── Page Body ────────────────────────────────────────────── -->
-<main class="page-body">
+<main class="page-body" id="main-content">
 
   <!-- 1. PAGE HERO -->
   <section class="page-hero" aria-label="Page introduction">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
+        <a href="<?= SITE_BASE ?>/">Home</a>
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span aria-current="page">How It Works</span>
       </nav>
@@ -196,7 +188,7 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div class="sv-mini-card">
                 <span class="sv-mini-label">Accuracy Rate</span>
-                <div class="sv-num">99.7%</div>
+                <div class="sv-num">99.8%</div>
                 recognition
               </div>
               <div class="sv-mini-card">
@@ -483,7 +475,7 @@ require_once __DIR__ . '/includes/nav.php';
       <div class="section-header reveal">
         <span class="tag">Common Questions</span>
         <h2 id="faq-heading">Questions About Getting Started</h2>
-        <p>Answers to the most common questions we hear from new customers before and after signing up.</p>
+        <p>Answers to common questions about getting started with Mark Attendance.</p>
       </div>
 
       <div class="faq-list" role="list">
@@ -497,7 +489,7 @@ require_once __DIR__ . '/includes/nav.php';
             </span>
           </div>
           <div class="faq-a" role="region">
-            <p>For a 50-person team, expect roughly 2 hours total. Account and device setup takes under 20 minutes. Employee enrollment runs at about 2 minutes per person, so with a single device you can enroll 50 people in under 2 hours. With two enrollment stations running in parallel that drops to around 50 minutes. Most customers are fully live before lunch on day one.</p>
+            <p>For a 50-person team, expect roughly 2 hours total. Account and device setup takes under 20 minutes. Employee enrollment runs at about 2 minutes per person, so with a single device you can enroll 50 people in under 2 hours. With two enrollment stations running in parallel that drops to around 50 minutes. Most teams can be fully live on day one.</p>
           </div>
         </div>
 
@@ -554,7 +546,7 @@ require_once __DIR__ . '/includes/nav.php';
           <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 7l6 3-6 3V7z" fill="currentColor"/></svg>
           Watch Demo
         </button>
-        <a href="/contact#demo" class="btn btn-ghost btn-lg">
+        <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-ghost btn-lg">
           <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 10C2 5.58 5.58 2 10 2s8 3.58 8 8-3.58 8-8 8-8-3.58-8-8z" stroke="currentColor" stroke-width="1.6"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Get Free Demo
         </a>
