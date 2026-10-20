@@ -69,7 +69,7 @@ const SOCIAL_LINKS = [
 // Search Console → Add property → "HTML tag" method → paste only the content="…" value.
 const GOOGLE_SITE_VERIFICATION = '';
 // Google Analytics 4 Measurement ID (e.g. 'G-XXXXXXXXXX'). Loads only after cookie consent.
-const GA4_MEASUREMENT_ID = '';
+const GA4_MEASUREMENT_ID = 'G-TB9N4NXGJT';
 
 // ── Helpers ────────────────────────────────────────────────────
 function whatsapp_url(string $text = WHATSAPP_TEXT): string
