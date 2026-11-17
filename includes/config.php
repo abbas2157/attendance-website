@@ -50,6 +50,17 @@ const FORM_RECIPIENT  = 'abbas8156@gmail.com';
 // "From" address for form emails — must be a mailbox on YOUR domain or many hosts reject it.
 const FORM_FROM       = 'no-reply@markattendance.io';
 
+// SMTP for form emails (PHPMailer). Put the real values in includes/config.local.php.
+// SMTP_HOST empty = fall back to PHP mail().
+defined('SMTP_HOST')   || define('SMTP_HOST', '');
+defined('SMTP_PORT')   || define('SMTP_PORT', 587);
+defined('SMTP_SECURE') || define('SMTP_SECURE', 'tls');   // 'tls' (STARTTLS, port 587), 'ssl' (port 465) or ''
+defined('SMTP_USER')   || define('SMTP_USER', '');
+defined('SMTP_PASS')   || define('SMTP_PASS', '');
+// Optional: send "From" this address instead of FORM_FROM. Gmail and most SMTP providers
+// require it to be the authenticated account (or a verified alias). Empty = use FORM_FROM.
+defined('SMTP_FROM')   || define('SMTP_FROM', '');
+
 // ── Web app login (empty = "Log In" button hidden) ────────────
 const APP_LOGIN_URL = '';
 

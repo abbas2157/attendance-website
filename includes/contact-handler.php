@@ -6,7 +6,7 @@
  * - Validates fields server-side (the JS validation is only a convenience).
  * - Saves every lead to the database (shown in /admin/queries); falls back to data/submissions.csv
  * if the database is unavailable, so nothing is lost.
- * - Emails FORM_RECIPIENT via PHP mail().
+ * - Emails FORM_RECIPIENT via SMTP (PHPMailer) when SMTP_HOST is set, otherwise PHP mail().
  * - Replies with JSON for fetch() requests, or Post/Redirect/Get for plain form posts.
  */
 
@@ -185,15 +185,60 @@ function contact_send_mail(array $v, array $tracking, ?int $id = null): bool
         $lines[] = '';
         $lines[] = 'Open in dashboard: ' . SITE_URL . '/admin/queries/' . $id;
     }
-    $headers = [
-        'From: ' . SITE_NAME . ' Website <' . FORM_FROM . '>',
-        'Reply-To: ' . $v['email'],   // validated by FILTER_VALIDATE_EMAIL — no header injection
-        'Content-Type: text/plain; charset=UTF-8',
-        'X-Mailer: PHP',
-    ];
-    $ok = @mail(FORM_RECIPIENT, '=?UTF-8?B?' . base64_encode($subject) . '?=', implode("\n", $lines), implode("\r\n", $headers));
+    $error = null;
+    $ok = send_site_mail(FORM_RECIPIENT, $subject, implode("\n", $lines), $v['email'], $v['name'], $error);
     if (!$ok) {
-        @error_log(date('c') . " mail() failed for submission from {$v['email']}\n", 3, contact_data_dir() . '/mail-errors.log');
+        @error_log(date('c') . " mail failed for submission from {$v['email']}: {$error}\n", 3, contact_data_dir() . '/mail-errors.log');
     }
     return $ok;
+}
+
+/**
+ * Send a plain-text email. Uses SMTP via PHPMailer when SMTP_HOST is set, otherwise PHP mail().
+ * $error receives a short reason on failure.
+ */
+function send_site_mail(string $to, string $subject, string $body, string $replyTo = '', string $replyName = '', ?string &$error = null): bool
+{
+    $from = SMTP_HOST !== '' && SMTP_FROM !== '' ? SMTP_FROM : FORM_FROM;
+
+    if (SMTP_HOST === '') {
+        $headers = [
+            'From: ' . SITE_NAME . ' Website <' . $from . '>',
+            'Content-Type: text/plain; charset=UTF-8',
+            'X-Mailer: PHP',
+        ];
+        if ($replyTo !== '') $headers[] = 'Reply-To: ' . $replyTo;   // validated by FILTER_VALIDATE_EMAIL — no header injection
+        $ok = @mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
+        if (!$ok) $error = 'mail() returned false' . (($e = error_get_last()) ? ': ' . $e['message'] : '');
+        return $ok;
+    }
+
+    require_once __DIR__ . '/lib/PHPMailer/Exception.php';
+    require_once __DIR__ . '/lib/PHPMailer/PHPMailer.php';
+    require_once __DIR__ . '/lib/PHPMailer/SMTP.php';
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = SMTP_HOST;
+        $mail->Port       = (int) SMTP_PORT;
+        $mail->SMTPAuth   = SMTP_USER !== '';
+        $mail->Username   = SMTP_USER;
+        $mail->Password   = SMTP_PASS;
+        $mail->SMTPSecure = SMTP_SECURE;            // '' = plain, but PHPMailer still upgrades via STARTTLS when offered
+        $mail->Timeout    = 15;
+        $mail->CharSet    = PHPMailer\PHPMailer\PHPMailer::CHARSET_UTF8;
+        if (defined('SMTP_DEBUG') && SMTP_DEBUG) $mail->SMTPDebug = PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+
+        $mail->setFrom($from, SITE_NAME . ' Website');
+        $mail->addAddress($to);
+        if ($replyTo !== '') $mail->addReplyTo($replyTo, $replyName);
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->isHTML(false);
+        return $mail->send();
+    } catch (PHPMailer\PHPMailer\Exception $e) {
+        $error = $mail->ErrorInfo ?: $e->getMessage();
+        return false;
+    }
 }
