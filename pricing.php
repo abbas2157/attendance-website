@@ -1,9 +1,9 @@
 <?php
 $page_title          = 'Pricing | Mark Attendance – Simple, Transparent Plans';
-$meta_description    = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
+$meta_description    = 'Mark Attendance pricing for businesses of every size. Every plan includes the full product — you only choose your size. Pilot free for 14 days.';
 $canonical_url       = 'https://markattendance.io/pricing';
-$og_description      = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
-$twitter_description = 'Mark Attendance pricing plans for businesses of every size. Starter, Business, and Enterprise plans. Try the Business plan free for 14 days.';
+$og_description      = 'Mark Attendance pricing for businesses of every size. Every plan includes the full product — you only choose your size. Pilot free for 14 days.';
+$twitter_description = 'Mark Attendance pricing for businesses of every size. Every plan includes the full product — you only choose your size. Pilot free for 14 days.';
 $current_page        = 'pricing';
 $json_ld = <<<'JSONLD'
 {
@@ -21,7 +21,7 @@ $json_ld = <<<'JSONLD'
           "item": {
             "@type": "Offer",
             "name": "Starter Plan",
-            "description": "Perfect for small businesses up to 50 employees. Includes 1 location, Android & iOS apps, basic reports, and email support.",
+            "description": "Perfect for small businesses up to 50 employees. One geofenced site, the full product — face-verified check-in, leave management, live monitor, CSV export — and email support.",
             "price": "29.00",
             "priceCurrency": "USD",
             "priceSpecification": {
@@ -44,7 +44,7 @@ $json_ld = <<<'JSONLD'
           "item": {
             "@type": "Offer",
             "name": "Business Plan",
-            "description": "Ideal for growing businesses with multiple locations. Up to 500 employees, 5 locations, advanced reports, shift & leave management, and priority support.",
+            "description": "Ideal for growing businesses with multiple locations. Up to 500 employees across 5 geofenced sites, free onboarding and enrolment assistance, and priority support.",
             "price": "79.00",
             "priceCurrency": "USD",
             "priceSpecification": {
@@ -67,7 +67,7 @@ $json_ld = <<<'JSONLD'
           "item": {
             "@type": "Offer",
             "name": "Enterprise Plan",
-            "description": "For large organisations with custom requirements. Unlimited employees, unlimited locations, custom integrations, dedicated account manager, and SLA.",
+            "description": "For large organisations with custom requirements. Unlimited employees and sites, custom attendance rules, opt-in shift location tracking, a dedicated account manager, and an SLA.",
             "priceCurrency": "USD",
             "eligibleCustomerType": "https://schema.org/BusinessEntityType",
             "seller": {
@@ -99,7 +99,7 @@ require_once __DIR__ . '/includes/nav.php';
         </nav>
         <span class="tag reveal">Pricing</span>
         <h1 class="reveal d1">Simple, Transparent Pricing</h1>
-        <p class="reveal d2">No hidden fees. No per-swipe charges. Pick a plan and grow without surprises.</p>
+        <p class="reveal d2">No hidden fees. No per-swipe charges. Every plan includes the full product — you only choose your size.</p>
       </div>
     </section>
 
@@ -143,23 +143,23 @@ require_once __DIR__ . '/includes/nav.php';
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                1 location
+                1 geofenced site
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Android &amp; iOS apps
+                Android &amp; iOS apps + web dashboard
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Basic reports
+                Face-verified check-in &amp; leave management
+              </li>
+              <li class="plan-feature">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Live monitor, audit log &amp; CSV export
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Email support
-              </li>
-              <li class="plan-feature disabled" aria-label="API access not included">
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M4 4l8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                API access
               </li>
             </ul>
             <a href="<?= SITE_BASE ?>/contact" class="btn btn-outline btn-full">Get Started</a>
@@ -185,23 +185,23 @@ require_once __DIR__ . '/includes/nav.php';
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Up to 5 locations
+                Up to 5 geofenced sites
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Android &amp; iOS apps
+                Everything in Starter
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Advanced reports + scheduling
+                Custom attendance rules, set up for you
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Shift &amp; leave management
+                Free onboarding &amp; enrolment assistance
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Priority support + API access
+                Priority support
               </li>
             </ul>
             <a href="<?= SITE_BASE ?>/contact#demo" class="btn btn-primary btn-full">Start Free Trial</a>
@@ -226,15 +226,15 @@ require_once __DIR__ . '/includes/nav.php';
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Unlimited locations
+                Unlimited geofenced sites
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                All Business features
+                Everything in Business
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Custom integrations &amp; API
+                Opt-in shift location tracking
               </li>
               <li class="plan-feature">
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -277,7 +277,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <td colspan="4">Core</td>
               </tr>
               <tr>
-                <td>Face Recognition</td>
+                <td>Face-Verified Check-In &amp; Check-Out</td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -289,7 +289,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <td><span class="t-text">Unlimited</span></td>
               </tr>
               <tr>
-                <td>Locations</td>
+                <td>Geofenced Sites</td>
                 <td><span class="t-text">1</span></td>
                 <td class="pop-col"><span class="t-text">Up to 5</span></td>
                 <td><span class="t-text">Unlimited</span></td>
@@ -306,28 +306,28 @@ require_once __DIR__ . '/includes/nav.php';
                 <td colspan="4">Reporting</td>
               </tr>
               <tr>
-                <td>Basic Reports</td>
+                <td>Attendance Records &amp; Working-Time Summary</td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Advanced Reports</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td>Inactive-Employees PDF Report</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Custom Schedules</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td>Verification Audit Log (every attempt)</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Export Formats</td>
+                <td>Attendance Export Format</td>
                 <td><span class="t-text">CSV</span></td>
-                <td class="pop-col"><span class="t-text">CSV, PDF, Excel</span></td>
-                <td><span class="t-text">All formats</span></td>
+                <td class="pop-col"><span class="t-text">CSV</span></td>
+                <td><span class="t-text">CSV</span></td>
               </tr>
 
               <!-- Management -->
@@ -335,48 +335,54 @@ require_once __DIR__ . '/includes/nav.php';
                 <td colspan="4">Management</td>
               </tr>
               <tr>
-                <td>Shift Management</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td>Live Attendance Monitor</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Leave Management</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td>Leave Management (requests &amp; approvals)</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Multi-Role Access</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td>Manual Corrections with Audit Trail</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+                <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              </tr>
+              <tr>
+                <td>Roles &amp; Granular Permissions</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
 
-              <!-- Integration -->
+              <!-- Location & controls -->
               <tr class="cat-row">
-                <td colspan="4">Integration</td>
+                <td colspan="4">Location &amp; Controls</td>
               </tr>
               <tr>
-                <td>CSV Export</td>
+                <td>Per-Site Geofence Radius</td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>REST API</td>
+                <td>Location Enforcement On / Off</td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+                <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              </tr>
+              <tr>
+                <td>Custom Attendance Rules (who marks where)</td>
                 <td><span class="t-cross" aria-label="Not included">—</span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>Webhooks</td>
-                <td><span class="t-cross" aria-label="Not included">—</span></td>
-                <td class="pop-col"><span class="t-cross" aria-label="Not included">—</span></td>
-                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Payroll Integration</td>
+                <td>Opt-In Shift Location Tracking</td>
                 <td><span class="t-cross" aria-label="Not included">—</span></td>
                 <td class="pop-col"><span class="t-cross" aria-label="Not included">—</span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -393,6 +399,12 @@ require_once __DIR__ . '/includes/nav.php';
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
+                <td>Onboarding &amp; Enrolment Assistance</td>
+                <td><span class="t-cross" aria-label="Not included">—</span></td>
+                <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+                <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              </tr>
+              <tr>
                 <td>Priority Support</td>
                 <td><span class="t-cross" aria-label="Not included">—</span></td>
                 <td class="pop-col"><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -405,7 +417,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
               </tr>
               <tr>
-                <td>SLA</td>
+                <td>SLA &amp; On-Site Support</td>
                 <td><span class="t-cross" aria-label="Not included">—</span></td>
                 <td class="pop-col"><span class="t-cross" aria-label="Not included">—</span></td>
                 <td><span class="t-check" aria-label="Included"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -436,7 +448,7 @@ require_once __DIR__ . '/includes/nav.php';
               </span>
             </button>
             <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
-              <p>Yes. The Business plan includes a 14-day free trial, no credit card required.</p>
+              <p>Yes — every new organisation can run a free 14-day pilot. We set you up, help enrol your first employees, and you decide after watching real check-ins. No card required.</p>
             </div>
           </div>
 
@@ -448,7 +460,7 @@ require_once __DIR__ . '/includes/nav.php';
               </span>
             </button>
             <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
-              <p>Absolutely. Upgrade or downgrade at any time. Changes take effect at the next billing cycle.</p>
+              <p>Absolutely. Plan limits are soft caps on your organisation — tell us and we raise or lower them the same day. Billing changes take effect at the next cycle.</p>
             </div>
           </div>
 
@@ -460,7 +472,7 @@ require_once __DIR__ . '/includes/nav.php';
               </span>
             </button>
             <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
-              <p>Active enrolled employees. Deactivated profiles don't count toward your limit.</p>
+              <p>Active enrolled employees — people with face samples who can mark attendance. Deactivated profiles don't count toward your limit.</p>
             </div>
           </div>
 
@@ -472,7 +484,7 @@ require_once __DIR__ . '/includes/nav.php';
               </span>
             </button>
             <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
-              <p>We accept major credit cards, bank transfers, and PayPak/JazzCash for Pakistani customers.</p>
+              <p>Billing is handled directly with us by invoice — bank transfer for Pakistani customers, and we can arrange other methods on request. There is no online checkout.</p>
             </div>
           </div>
 
@@ -485,6 +497,18 @@ require_once __DIR__ . '/includes/nav.php';
             </button>
             <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
               <p>No setup fee. Business and Enterprise plans include free onboarding assistance.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+              <h4>How do I sign up?</h4>
+              <span class="faq-btn" aria-hidden="true">
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 5L7 10L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+              <p>Setup is done with us, not a signup form: contact us, we create your organisation and geofenced sites, and you get a company code that links your devices. Most teams are marking attendance the same day.</p>
             </div>
           </div>
 
