@@ -58,6 +58,9 @@ function site_setting_fields(): array
             'social_twitter'   => ['Twitter / X', 'url', 'https://x.com/…', ''],
             'social_linkedin'  => ['LinkedIn', 'url', 'https://linkedin.com/company/…', ''],
             'social_instagram' => ['Instagram', 'url', 'https://instagram.com/…', ''],
+            'social_youtube'   => ['YouTube', 'url', 'https://youtube.com/@…', ''],
+            'social_tiktok'    => ['TikTok', 'url', 'https://tiktok.com/@…', ''],
+            'social_telegram'  => ['Telegram', 'url', 'https://t.me/…', ''],
         ]],
         'google' => ['globe', 'Google', 'Analytics and Search Console.', [
             'ga4_id'                   => ['GA4 Measurement ID', 'ga4', 'G-XXXXXXXXXX', 'Google Analytics 4. Loads only after the visitor accepts cookies. Empty = analytics off.'],
@@ -83,6 +86,9 @@ function site_setting_current(): array
         'social_twitter'   => SOCIAL_LINKS['twitter'],
         'social_linkedin'  => SOCIAL_LINKS['linkedin'],
         'social_instagram' => SOCIAL_LINKS['instagram'],
+        'social_youtube'   => SOCIAL_LINKS['youtube'],
+        'social_tiktok'    => SOCIAL_LINKS['tiktok'],
+        'social_telegram'  => SOCIAL_LINKS['telegram'],
         'ga4_id'                   => GA4_MEASUREMENT_ID,
         'google_site_verification' => GOOGLE_SITE_VERIFICATION,
     ];

@@ -80,6 +80,9 @@ define('SOCIAL_LINKS', [
     'twitter'   => site_setting('social_twitter', ''),
     'linkedin'  => site_setting('social_linkedin', ''),
     'instagram' => site_setting('social_instagram', ''),
+    'youtube'   => site_setting('social_youtube', ''),
+    'tiktok'    => site_setting('social_tiktok', ''),
+    'telegram'  => site_setting('social_telegram', ''),
 ]);
 
 // ── Google ─────────────────────────────────────────────────────
@@ -133,6 +136,9 @@ function social_links(string $class): string
         'twitter'   => ['Twitter/X', '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'],
         'linkedin'  => ['LinkedIn',  '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>'],
         'instagram' => ['Instagram', '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>'],
+        'youtube'   => ['YouTube',   '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.6 15.6V8.4L15.83 12 9.6 15.6z"/></svg>'],
+        'tiktok'    => ['TikTok',    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>'],
+        'telegram'  => ['Telegram',  '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.35c.3-1.2-.86-2.2-2-1.73L2.73 9.84c-1.26.51-1.17 2.33.13 2.72l4.42 1.33 1.65 5.25c.3.97 1.54 1.26 2.25.53l2.34-2.4 4.3 3.15c.92.68 2.23.17 2.46-.95l1.66-15.12zM9.37 13.2l8.6-5.44c.23-.14.46.17.27.35l-7.1 6.47c-.25.23-.41.54-.46.87l-.24 1.8c-.03.24-.37.26-.44.03l-.93-3c-.1-.35.04-.72.3-1.08z"/></svg>'],
     ];
     $html = '';
     foreach (SOCIAL_LINKS as $key => $url) {
