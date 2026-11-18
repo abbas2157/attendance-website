@@ -25,9 +25,9 @@ if (is_file(__DIR__ . '/config.local.php')) {
 // tables are created automatically on first use (includes/db.php).
 defined('DB_HOST') || define('DB_HOST', '127.0.0.1');
 defined('DB_PORT') || define('DB_PORT', 3306);
-defined('DB_NAME') || define('DB_NAME', 'mark_attendance');
-defined('DB_USER') || define('DB_USER', 'root');
-defined('DB_PASS') || define('DB_PASS', '');
+defined('DB_NAME') || define('DB_NAME', 'u388951733_mark_atten');
+defined('DB_USER') || define('DB_USER', 'u388951733_mark_atten');
+defined('DB_PASS') || define('DB_PASS', 'e2*I!ctxIZ');
 // Admin dashboard (/admin). Store only a password_hash() — never the plain password.
 // Empty hash = login disabled. Set one with: php tools/set-admin-password.php
 defined('ADMIN_USERNAME')      || define('ADMIN_USERNAME', 'admin');
@@ -58,14 +58,14 @@ const FORM_FROM       = 'no-reply@markattendance.io';
 
 // SMTP for form emails (PHPMailer). Put the real values in includes/config.local.php.
 // SMTP_HOST empty = fall back to PHP mail().
-defined('SMTP_HOST')   || define('SMTP_HOST', '');
-defined('SMTP_PORT')   || define('SMTP_PORT', 587);
-defined('SMTP_SECURE') || define('SMTP_SECURE', 'tls');   // 'tls' (STARTTLS, port 587), 'ssl' (port 465) or ''
-defined('SMTP_USER')   || define('SMTP_USER', '');
-defined('SMTP_PASS')   || define('SMTP_PASS', '');
+defined('SMTP_HOST')   || define('SMTP_HOST', 'smtp.hostinger.com');
+defined('SMTP_PORT')   || define('SMTP_PORT', 465);
+defined('SMTP_SECURE') || define('SMTP_SECURE', 'ssl');   // 'tls' (STARTTLS, port 587), 'ssl' (port 465) or ''
+defined('SMTP_USER')   || define('SMTP_USER', 'info@markattendance.io');
+defined('SMTP_PASS')   || define('SMTP_PASS', 'yeep-wrmt-d0cm-pkne');
 // Optional: send "From" this address instead of FORM_FROM. Gmail and most SMTP providers
 // require it to be the authenticated account (or a verified alias). Empty = use FORM_FROM.
-defined('SMTP_FROM')   || define('SMTP_FROM', '');
+defined('SMTP_FROM')   || define('SMTP_FROM', 'info@markattendance.io');
 
 // ── Web app login (empty = "Log In" button hidden) ────────────
 define('APP_LOGIN_URL', site_setting('app_login_url', ''));
