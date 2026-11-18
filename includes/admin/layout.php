@@ -7,6 +7,7 @@ $nav = [
     ['/admin', 'Dashboard', 'dashboard', $adminPath === '/'],
     ['/admin/queries', 'Queries', 'inbox', str_starts_with($adminPath, '/queries')],
     ['/admin/seo', 'SEO', 'file-text', str_starts_with($adminPath, '/seo')],
+    ['/admin/settings', 'Site Settings', 'settings', str_starts_with($adminPath, '/settings')],
 ];
 $user = admin_user();
 include __DIR__ . '/head.php';

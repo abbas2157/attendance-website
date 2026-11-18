@@ -187,9 +187,9 @@ require_once __DIR__ . '/includes/nav.php';
                 per person
               </div>
               <div class="sv-mini-card">
-                <span class="sv-mini-label">Accuracy Rate</span>
-                <div class="sv-num">99.8%</div>
-                recognition
+                <span class="sv-mini-label">Face Samples</span>
+                <div class="sv-num">3+</div>
+                per employee
               </div>
               <div class="sv-mini-card">
                 <span class="sv-mini-label">Bulk Import</span>
@@ -213,7 +213,7 @@ require_once __DIR__ . '/includes/nav.php';
           <ul class="step-detail-list" role="list">
             <li>
               <span class="chk" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>Sub-second identification even in varying lighting conditions</span>
+              <span>Verified in seconds against the employee's own enrolled samples</span>
             </li>
             <li>
               <span class="chk" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -229,7 +229,7 @@ require_once __DIR__ . '/includes/nav.php';
             </li>
             <li>
               <span class="chk" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>Offline mode buffers records locally and syncs when connectivity resumes</span>
+              <span>Every attempt — accepted or rejected — is logged with its match confidence</span>
             </li>
           </ul>
         </div>
@@ -240,13 +240,13 @@ require_once __DIR__ . '/includes/nav.php';
             </div>
             <span class="sv-pill sv-pill-blue">
               <svg viewBox="0 0 14 14" fill="none"><path d="M7 1v6l3.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Identified in 0.8 seconds
+              Verified in seconds
             </span>
             <div class="sv-mini-cards">
               <div class="sv-mini-card">
-                <span class="sv-mini-label">Recognition Speed</span>
-                <div class="sv-num">&lt;1s</div>
-                average
+                <span class="sv-mini-label">Match Threshold</span>
+                <div class="sv-num">Strict</div>
+                ambiguity rejected
               </div>
               <div class="sv-mini-card">
                 <span class="sv-mini-label">Hardware Needed</span>
@@ -259,9 +259,9 @@ require_once __DIR__ . '/includes/nav.php';
                 no limits
               </div>
               <div class="sv-mini-card">
-                <span class="sv-mini-label">Offline Support</span>
-                <div class="sv-num">Yes</div>
-                auto-sync
+                <span class="sv-mini-label">Geofence</span>
+                <div class="sv-num">35m</div>
+                per-site radius
               </div>
             </div>
           </div>

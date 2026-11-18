@@ -374,8 +374,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="l">To Set Up</div>
           </div>
           <div class="stat-item">
-            <div class="n" data-count="99.8" data-suffix="%" aria-label="99.8 percent accuracy">99.8%</div>
-            <div class="l">Accuracy</div>
+            <div class="n" data-count="100" data-suffix="%" aria-label="100 percent of attempts logged for audit">100%</div>
+            <div class="l">Attempts Logged</div>
           </div>
           <div class="stat-item">
             <div class="n" data-count="24" data-suffix="/7" aria-label="24/7 support">24/7</div>
@@ -410,7 +410,7 @@ require_once __DIR__ . '/includes/nav.php';
           <!-- Warehouses -->
           <article class="testi-card reveal d3" role="listitem">
             <h3>Warehouses</h3>
-            <p>Entry and exit tracking across multiple gates, contractor time logs, and zone-level visibility in one dashboard — even when connectivity is weak, thanks to offline sync.</p>
+            <p>Entry and exit tracking across multiple gates, contractor time logs, and zone-level visibility in one dashboard — every gate geofenced to its own premises.</p>
           </article>
 
         </div>

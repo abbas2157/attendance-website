@@ -3,11 +3,11 @@
  * Admin dashboard front controller (/admin, /admin/queries, /admin/seo, …).
  * .htaccess routes every /admin* URL here.
  */
-require __DIR__ . '/includes/config.php';
-require __DIR__ . '/includes/db.php';
-require __DIR__ . '/includes/seo.php';
-require __DIR__ . '/includes/contact-handler.php';   // CONTACT_SUBJECTS
-require __DIR__ . '/includes/admin/functions.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/seo.php';
+require_once __DIR__ . '/includes/contact-handler.php';   // CONTACT_SUBJECTS
+require_once __DIR__ . '/includes/admin/functions.php';
 
 admin_session_start();
 header('X-Robots-Tag: noindex, nofollow');
@@ -117,6 +117,17 @@ if ($adminPath === '/') {
     }
     $view = 'query';
     $pageTitle = 'Query from ' . $query['name'];
+} elseif ($adminPath === '/settings') {
+    $error = null;
+    if ($method === 'POST') {
+        if (!csrf_valid($_POST['csrf'] ?? '')) {
+            $error = 'Your session expired. Please try again.';
+        } elseif (site_settings_save($_POST, $_FILES, $error)) {
+            redirect('/admin/settings?saved=1');
+        }
+    }
+    $view = 'settings';
+    $pageTitle = 'Site Settings';
 } elseif ($adminPath === '/seo') {
     $view = 'seo';
     $pageTitle = 'SEO';

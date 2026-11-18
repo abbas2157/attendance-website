@@ -56,7 +56,7 @@ $json_ld = <<<'JSONLD'
             "name": "How accurate is the face recognition?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Our system achieves 99.8% accuracy using deep learning algorithms trained on diverse datasets. It works reliably in varied lighting conditions, with glasses, masks partially worn, and at different angles."
+              "text": "Verification runs on the server against each employee's own enrolled face samples, with a strict match threshold. If a face is too close to someone else's, the attempt is rejected as ambiguous rather than guessed — and every attempt is recorded with its confidence score. Employees who sometimes wear glasses can enrol an extra sample with them on."
             }
           },
           {
@@ -72,7 +72,7 @@ $json_ld = <<<'JSONLD'
             "name": "Can it work without an internet connection?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The mobile app supports offline mode — attendance is recorded locally and synced automatically when the connection is restored. The web dashboard requires an internet connection."
+              "text": "Check-in needs a brief internet connection: one camera frame is uploaded and verified on the server against the employee's own enrolled samples, which takes seconds even on a weak connection. The web dashboard also requires an internet connection."
             }
           },
           {
@@ -136,8 +136,8 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div class="hero-trust-sep" aria-hidden="true"></div>
               <div class="hero-trust-item">
-                <strong>99.8%</strong>
-                <span>Recognition Accuracy</span>
+                <strong>100%</strong>
+                <span>Attempts Logged for Audit</span>
               </div>
               <div class="hero-trust-sep" aria-hidden="true"></div>
               <div class="hero-trust-item">
@@ -151,28 +151,14 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="hero-visual" aria-hidden="true">
             <div class="phone-outer">
               <div class="phone-body">
-                <div class="phone-screen">
-                  <div class="phone-notch"></div>
-                  <div class="face-ring">
-                    <span class="face-emoji">&#128522;</span>
-                  </div>
-                  <div class="scan-line"></div>
-                  <div class="phone-status-badge">&#10003; Verified</div>
-                  <div class="phone-user">Ahmed Khan</div>
-                  <div class="phone-time">09:02 AM &middot; Check-In</div>
-                  <div class="phone-dot-row" aria-hidden="true">
-                    <span class="phone-dot"></span>
-                    <span class="phone-dot"></span>
-                    <span class="phone-dot"></span>
-                  </div>
-                </div>
+                <img class="phone-hero-shot" src="<?= SITE_BASE ?>/assets/app-screens/checked-in.webp" alt="" width="760" height="1648" fetchpriority="high">
               </div>
             </div>
             <div class="float-card float-card-1" aria-label="247 employees present today">
               &#9989; 247 Present Today
             </div>
-            <div class="float-card float-card-2" aria-label="Scan time 0.8 seconds">
-              &#9889; 0.8s Scan Time
+            <div class="float-card float-card-2" aria-label="Verified in seconds">
+              &#9889; Verified in Seconds
             </div>
           </div>
 
@@ -189,8 +175,8 @@ require_once __DIR__ . '/includes/nav.php';
             <span>To Enrol an Employee</span>
           </div>
           <div class="stat-item reveal d2">
-            <strong class="stat-num" data-count="99.8" data-suffix="%" aria-label="99.8 percent accuracy">0</strong>
-            <span>Accuracy</span>
+            <strong class="stat-num" data-count="100" data-suffix="%" aria-label="100 percent of attempts logged for audit">0</strong>
+            <span>Attempts Logged for Audit</span>
           </div>
           <div class="stat-item reveal d3">
             <strong class="stat-num" data-count="1" data-suffix=" day" aria-label="Set up in 1 day">0</strong>
@@ -225,8 +211,8 @@ require_once __DIR__ . '/includes/nav.php';
                 <path d="M8 17c0-2.21 1.79-4 4-4s4 1.79 4 4"/>
               </svg>
             </div>
-            <h3>Face Recognition</h3>
-            <p>Contactless biometric identification with 99.8% accuracy. Works in varied lighting and angles.</p>
+            <h3>Face Verification</h3>
+            <p>Each check-in is matched against that employee's own enrolled samples — never the whole workforce. Anything ambiguous is rejected, not guessed.</p>
           </article>
 
           <article class="feat-card reveal d2" aria-label="Real-Time Tracking feature">
@@ -236,8 +222,8 @@ require_once __DIR__ . '/includes/nav.php';
                 <polyline points="12,6 12,12 16,14"/>
               </svg>
             </div>
-            <h3>Real-Time Tracking</h3>
-            <p>Live dashboard showing who's in, who's out, and who's late — updated every second.</p>
+            <h3>Live Attendance Monitor</h3>
+            <p>A dashboard that refreshes itself: who's on duty, who completed their shift, and who's missing a punch.</p>
           </article>
 
           <article class="feat-card reveal d3" aria-label="Automated Reports feature">
@@ -250,8 +236,8 @@ require_once __DIR__ . '/includes/nav.php';
                 <polyline points="10,9 9,9 8,9"/>
               </svg>
             </div>
-            <h3>Automated Reports</h3>
-            <p>Daily, weekly, and monthly attendance reports generated automatically and emailed to managers.</p>
+            <h3>Reports &amp; Exports</h3>
+            <p>Attendance records and working-time summaries export to CSV, plus a PDF report of employees who never marked or went quiet.</p>
           </article>
 
           <article class="feat-card reveal d1" aria-label="Shift and Late Tracking feature">
@@ -266,8 +252,8 @@ require_once __DIR__ . '/includes/nav.php';
                 <path d="M16 14h.01"/>
               </svg>
             </div>
-            <h3>Shift &amp; Late Tracking</h3>
-            <p>Define shifts, grace periods, and overtime rules. Automatically flag late arrivals and early departures.</p>
+            <h3>Leave Management</h3>
+            <p>Employees request leave from the app with a face check; HR approves or rejects from the dashboard — with reasons on record.</p>
           </article>
 
           <article class="feat-card reveal d2" aria-label="Multi-Location feature">
@@ -278,7 +264,7 @@ require_once __DIR__ . '/includes/nav.php';
               </svg>
             </div>
             <h3>Multi-Location</h3>
-            <p>Manage attendance across multiple offices, warehouses, or factory floors from a single dashboard.</p>
+            <p>Offices, warehouses, and factory floors in one dashboard — each site geofenced with its own radius.</p>
           </article>
 
           <article class="feat-card reveal d3" aria-label="Secure Cloud Sync feature">
@@ -287,8 +273,8 @@ require_once __DIR__ . '/includes/nav.php';
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
-            <h3>Secure Cloud Sync</h3>
-            <p>All data is encrypted and synced to the cloud in real time. Accessible anytime, anywhere.</p>
+            <h3>Private by Design</h3>
+            <p>Only numeric face templates are stored — never photos. Data is encrypted and accessible from any browser.</p>
           </article>
 
         </div>
@@ -431,67 +417,34 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div class="app-bullet">
                 <span class="bullet-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
-                Works offline — syncs when connected
+                Geofenced — knows when you're on site
               </div>
               <div class="app-bullet">
                 <span class="bullet-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
-                Admin dashboard with live stats
+                Apply for leave in a tap — HR approves on the web
               </div>
               <div class="app-bullet">
                 <span class="bullet-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
-                Push notifications for late arrivals
+                Admins enrol new staff in about a minute
               </div>
               <div class="app-bullet">
                 <span class="bullet-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
-                Secure biometric login
+                Every attempt logged with match confidence
               </div>
             </div>
           </div>
 
-          <!-- Right Phones Pair -->
+          <!-- Right Phones Pair: real app screenshots -->
           <div class="app-visual" aria-hidden="true">
             <div class="phones-pair">
               <div class="phone-card sec">
                 <div class="phone-card-inner">
-                  <div class="phone-card-screen">
-                    <div class="phone-card-notch"></div>
-                    <div class="mini-header">
-                      <span class="mini-title">Attendance</span>
-                      <span class="mini-dot"></span>
-                    </div>
-                    <div class="mini-rows">
-                      <div class="mini-row">
-                        <span class="mini-row-n">Ali Hassan</span>
-                        <span class="mini-row-s">In</span>
-                      </div>
-                      <div class="mini-row">
-                        <span class="mini-row-n">Sara Malik</span>
-                        <span class="mini-row-s">In</span>
-                      </div>
-                      <div class="mini-row">
-                        <span class="mini-row-n">Usman Raza</span>
-                        <span class="mini-row-s" style="color:#f59e0b">Late</span>
-                      </div>
-                      <div class="mini-row">
-                        <span class="mini-row-n">Fatima Noor</span>
-                        <span class="mini-row-s" style="color:#f87171">Out</span>
-                      </div>
-                    </div>
-                  </div>
+                  <img class="phone-card-shot" src="<?= SITE_BASE ?>/assets/app-screens/attendance-history.webp" alt="" width="760" height="1648" loading="lazy">
                 </div>
               </div>
               <div class="phone-card pri">
                 <div class="phone-card-inner">
-                  <div class="phone-card-screen">
-                    <div class="phone-card-notch"></div>
-                    <div class="mini-header">
-                      <span class="mini-title">Face Scan</span>
-                      <span class="mini-dot"></span>
-                    </div>
-                    <div class="mini-face">&#128522;</div>
-                    <div class="mini-name">Ahmed Khan</div>
-                    <div class="mini-status">&#10003; Recognised</div>
-                  </div>
+                  <img class="phone-card-shot" src="<?= SITE_BASE ?>/assets/app-screens/face-scan.webp" alt="" width="760" height="1648" loading="lazy">
                 </div>
               </div>
             </div>
@@ -500,6 +453,9 @@ require_once __DIR__ . '/includes/nav.php';
         </div>
       </div>
     </section>
+
+    <!-- ===================== APP SCREENSHOTS (shared slider) ===================== -->
+    <?php require __DIR__ . '/includes/app-screens.php'; ?>
 
     <!-- ===================== WHY MARK ATTENDANCE ===================== -->
     <section class="section section-alt" aria-labelledby="why-heading">
@@ -521,9 +477,9 @@ require_once __DIR__ . '/includes/nav.php';
             <p>Enrolling an employee takes about 2 minutes, and most organisations can be fully set up in under a day. No complex hardware — just a device with a camera.</p>
           </article>
 
-          <article class="testi-card reveal d3" aria-label="Works offline">
-            <h3>Works Offline</h3>
-            <p>Weak connectivity at the gate or on the factory floor? Attendance is recorded locally and synced automatically when the connection is restored.</p>
+          <article class="testi-card reveal d3" aria-label="Built-in audit trail">
+            <h3>Built-In Audit Trail</h3>
+            <p>Every verification attempt is logged with its match confidence — accepted or rejected — and any HR correction records who changed what, when, and why.</p>
           </article>
 
         </div>
@@ -548,7 +504,7 @@ require_once __DIR__ . '/includes/nav.php';
               </button>
             </div>
             <div class="faq-a" id="faq-a-1" hidden>
-              <p>Our system achieves 99.8% accuracy using deep learning algorithms trained on diverse datasets. It works reliably in varied lighting conditions, with glasses, masks partially worn, and at different angles.</p>
+              <p>Verification runs on the server against each employee's own enrolled face samples, with a strict match threshold. If a face is too close to someone else's, the attempt is rejected as ambiguous rather than guessed — and every attempt is recorded with its confidence score. Employees who sometimes wear glasses can enrol an extra sample with them on.</p>
             </div>
           </div>
 
@@ -572,7 +528,7 @@ require_once __DIR__ . '/includes/nav.php';
               </button>
             </div>
             <div class="faq-a" id="faq-a-3" hidden>
-              <p>The mobile app supports offline mode — attendance is recorded locally and synced automatically when the connection is restored. The web dashboard requires an internet connection.</p>
+              <p>Check-in needs a brief internet connection: one camera frame is uploaded and verified on the server against the employee's own enrolled samples, which takes seconds even on a weak connection. The web dashboard also requires an internet connection.</p>
             </div>
           </div>
 

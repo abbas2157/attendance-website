@@ -57,7 +57,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="mission-text reveal">
           <h2 id="mission-heading">Why We Built This</h2>
           <p>Manual attendance systems are broken. Register books get falsified, buddy-punching quietly inflates payroll, and HR teams spend more time correcting records than supporting people. For factories, warehouses, and offices across Pakistan, this wasn't a minor inconvenience — it was a serious operational drain.</p>
-          <p>We built Mark Attendance because face recognition technology had matured to the point where it could actually solve the problem — not just in theory, but in real-world environments with shift workers, varying lighting, masks, and high throughput at the gate. Our system processes each recognition in under a second, works offline when connectivity is weak, and syncs automatically when it's restored.</p>
+          <p>We built Mark Attendance because face recognition technology had matured to the point where it could actually solve the problem — not just in theory, but in real-world environments with shift workers, varying lighting, and high throughput at the gate. Each check-in is verified in seconds against that employee's own enrolled samples — never the whole workforce — and every attempt is logged with its confidence score.</p>
           <p>Our vision is to become the attendance backbone for every organisation in Pakistan and South Asia. We believe that when payroll is accurate, trust between employers and employees improves. When managers have real-time visibility, they can lead better. Accurate attendance is not a back-office function — it's the foundation of a fair workplace.</p>
         </div>
         <div class="reveal delay-2">
@@ -73,8 +73,8 @@ require_once __DIR__ . '/includes/nav.php';
             </div>
             <hr class="stat-divider">
             <div class="stat-item">
-              <div class="stat-num">99.8%</div>
-              <div class="stat-label">Face Recognition Accuracy Rate</div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Verification Attempts Logged for Audit</div>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="value-card reveal delay-2">
           <span class="value-icon" aria-hidden="true">&#128274;</span>
           <h3>Privacy by Design</h3>
-          <p>Employee biometric data is encrypted and never sold or shared. Privacy controls are built in from day one, not bolted on.</p>
+          <p>Only numeric face templates are stored — never photos. Employee data is encrypted and never sold or shared. Privacy controls are built in from day one, not bolted on.</p>
         </div>
         <div class="value-card reveal delay-3">
           <span class="value-icon" aria-hidden="true">&#129309;</span>
@@ -138,7 +138,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="story-text reveal delay-2">
           <h2 id="story-heading">Our Story</h2>
           <p>Mark Attendance is a new company, built in Lahore by a small team of engineers who saw how much time, money, and trust is lost to unreliable attendance records. Register books, punch cards, and PINs are easy to cheat and slow to reconcile — and HR teams end up paying the price.</p>
-          <p>We are launching in 2026 with a web dashboard and face-recognition check-in designed for the realities of Pakistani workplaces: shift workers, multiple locations, varying lighting, and patchy connectivity. Attendance is recorded offline and synced automatically, and reports export to CSV, Excel, or PDF for your payroll process.</p>
+          <p>We are launching in 2026 with a web dashboard and face-verified check-in designed for the realities of Pakistani workplaces: shift workers, multiple geofenced locations, and shared devices at the gate. Every verification attempt is logged for audit, and attendance records export to CSV for your payroll process.</p>
           <p>Our Android and iOS apps are coming soon, and we are shaping the roadmap around feedback from the first organisations that work with us. If you'd like to be one of them, we'd love to hear from you. Our north star is simple: make attendance the one thing organisations never have to worry about.</p>
         </div>
       </div>

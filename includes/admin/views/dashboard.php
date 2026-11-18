@@ -65,6 +65,32 @@ $bars = function (array $data): void {
 
     <div class="dash-side">
         <div class="card">
+            <div class="card-head">
+                <h3>Site setup</h3>
+                <a href="<?= url('/admin/settings') ?>" class="link">Settings <?= admin_icon('arrow-right', 'icon icon-sm') ?></a>
+            </div>
+            <?php
+            $socialSet = count(array_filter(SOCIAL_LINKS));
+            $setup = [
+                ['Google Play link',  PLAY_STORE_URL !== '',  PLAY_STORE_URL !== '' ? 'Live' : 'Badges show "Coming soon"'],
+                ['App Store link',    APP_STORE_URL !== '',   APP_STORE_URL !== '' ? 'Live' : 'Badges show "Coming soon"'],
+                ['Web app login',     APP_LOGIN_URL !== '',   APP_LOGIN_URL !== '' ? 'Button shown' : 'Button hidden'],
+                ['Social profiles',   $socialSet > 0,         $socialSet . ' of ' . count(SOCIAL_LINKS) . ' linked'],
+                ['Google Analytics',  GA4_MEASUREMENT_ID !== '', GA4_MEASUREMENT_ID !== '' ? GA4_MEASUREMENT_ID : 'Off'],
+                ['Custom favicon',    SITE_FAVICON !== '',    SITE_FAVICON !== '' ? 'Uploaded' : 'Using default'],
+            ];
+            ?>
+            <ul class="setup-list">
+<?php foreach ($setup as [$label, $done, $hint]): ?>
+                <li>
+                    <span class="setup-state <?= $done ? 'ok' : 'todo' ?>"><?= admin_icon($done ? 'check' : 'alert', 'icon') ?></span>
+                    <span><?= e($label) ?></span>
+                    <span class="muted"><?= e($hint) ?></span>
+                </li>
+<?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="card">
             <div class="card-head"><h3>Queries by topic</h3></div>
             <?php $bars($bySubject); ?>
         </div>

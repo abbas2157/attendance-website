@@ -1,9 +1,9 @@
 <?php
 $page_title          = 'Features | Mark Attendance – Face Recognition Attendance';
-$meta_description    = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
+$meta_description    = 'Explore Mark Attendance features: face-verified check-in, geofenced sites, a live attendance monitor, leave management, CSV and PDF exports, and a full audit trail.';
 $canonical_url       = 'https://markattendance.io/features';
-$og_description      = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
-$twitter_description = 'Explore Mark Attendance features: face recognition, real-time tracking, automated reports, shift management, multi-location support, and secure cloud sync.';
+$og_description      = 'Explore Mark Attendance features: face-verified check-in, geofenced sites, a live attendance monitor, leave management, CSV and PDF exports, and a full audit trail.';
+$twitter_description = 'Explore Mark Attendance features: face-verified check-in, geofenced sites, a live attendance monitor, leave management, CSV and PDF exports, and a full audit trail.';
 $current_page        = 'features';
 $json_ld = <<<'JSONLD'
 {
@@ -21,17 +21,17 @@ $json_ld = <<<'JSONLD'
       "description": "Free demo available"
     },
     "featureList": [
-      "Face Recognition Engine",
-      "Real-Time Dashboard",
-      "Automated Reporting",
-      "Shift and Leave Management",
+      "Face-Verified Check-In",
+      "Live Attendance Monitor",
+      "Reports and CSV Export",
+      "Leave Management",
       "Multi-Location Support",
-      "Cloud Sync and Backup",
-      "Admin Role Management",
-      "Anti-Spoofing Technology",
-      "Payroll Integration",
-      "Mobile Offline Mode",
-      "Custom Notifications",
+      "Encrypted Storage and Backups",
+      "Roles and Granular Permissions",
+      "Spoof-Resistant Scanning",
+      "Payroll-Ready Exports",
+      "Geofenced Check-In",
+      "Attendance Rules",
       "Audit Log and Compliance"
     ]
   }
@@ -54,7 +54,7 @@ require_once __DIR__ . '/includes/nav.php';
         </nav>
         <span class="tag">Features</span>
         <h1>Powerful Features for Modern Attendance Management</h1>
-        <p>Everything your organisation needs — face recognition, real-time tracking, automated reports, and more.</p>
+        <p>Everything your organisation needs — face-verified check-in, geofenced sites, live monitoring, leave approvals, and exports.</p>
       </div>
     </section>
 
@@ -72,8 +72,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon p" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
-            <h3>Face Recognition Engine</h3>
-            <p>Powered by deep learning — 99.8% accurate, works in low light, with glasses, and at multiple angles. Sub-second identification.</p>
+            <h3>Face-Verified Check-In</h3>
+            <p>Verification, not identification: each scan is matched on the server against that employee's own enrolled samples. Anything ambiguous is rejected, not guessed.</p>
           </article>
 
           <!-- Card 2: Real-Time Dashboard (blue) -->
@@ -81,8 +81,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon b" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </div>
-            <h3>Real-Time Dashboard</h3>
-            <p>Live view of every employee's status — present, absent, late, or on leave. Updated every second across all locations.</p>
+            <h3>Live Attendance Monitor</h3>
+            <p>A wall view that refreshes itself: who's on duty, who completed their shift, and who's missing a punch — across all locations.</p>
           </article>
 
           <!-- Card 3: Automated Reporting (orange) -->
@@ -90,8 +90,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon o" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
-            <h3>Automated Reporting</h3>
-            <p>Generate daily, weekly, monthly, or custom-range reports. Schedule automatic email delivery to managers and HR.</p>
+            <h3>Reports &amp; Exports</h3>
+            <p>Attendance records and working-time summaries for any date range, exported to CSV — plus a PDF report of employees who never marked or went quiet.</p>
           </article>
 
           <!-- Card 4: Shift & Leave Management (coral) -->
@@ -99,8 +99,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon c" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
-            <h3>Shift &amp; Leave Management</h3>
-            <p>Define multiple shifts, set grace periods and overtime rules. Integrate leave requests with attendance data automatically.</p>
+            <h3>Leave Management</h3>
+            <p>Paid and unpaid leave types you define. Employees request from the app with a face check; HR approves or rejects with a reason on record.</p>
           </article>
 
           <!-- Card 5: Multi-Location Support (purple) -->
@@ -109,7 +109,7 @@ require_once __DIR__ . '/includes/nav.php';
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <h3>Multi-Location Support</h3>
-            <p>Centrally manage attendance across unlimited offices, factory floors, and warehouse sites. Single unified dashboard.</p>
+            <p>Offices, factory floors, and warehouse sites in one dashboard — each site geofenced with its own radius.</p>
           </article>
 
           <!-- Card 6: Cloud Sync & Backup (blue) -->
@@ -117,8 +117,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon b" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
             </div>
-            <h3>Cloud Sync &amp; Backup</h3>
-            <p>256-bit encrypted data synced to the cloud in real time. Automatic backups. Access from any browser, anywhere.</p>
+            <h3>Encrypted &amp; Backed Up</h3>
+            <p>Data is encrypted and stored centrally with automatic backups. Only numeric face templates are kept — never photos. Access from any browser.</p>
           </article>
 
         </div>
@@ -139,8 +139,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon o" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
             </div>
-            <h3>Admin Role Management</h3>
-            <p>Assign admin, manager, and viewer roles. Control who can view, edit, or export attendance data at each location.</p>
+            <h3>Roles &amp; Granular Permissions</h3>
+            <p>Define your own roles and grant permissions one by one — who may view, edit, enrol, correct, or export, at every step.</p>
           </article>
 
           <!-- Card 8: Anti-Spoofing Technology (coral) -->
@@ -148,8 +148,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon c" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>Anti-Spoofing Technology</h3>
-            <p>Liveness detection prevents photos or videos from fooling the system. Every scan verifies a real, live face.</p>
+            <h3>Spoof-Resistant Scanning</h3>
+            <p>Live camera only — gallery photos are never accepted. On-device checks catch closed eyes and odd head poses, and the server rejects ambiguous matches.</p>
           </article>
 
           <!-- Card 9: Payroll Integration (purple) -->
@@ -157,17 +157,17 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon p" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
             </div>
-            <h3>Payroll Integration</h3>
-            <p>Export attendance data in CSV, Excel, or PDF. REST API available for direct payroll software integration.</p>
+            <h3>Payroll-Ready Exports</h3>
+            <p>Attendance records and working-time summaries export to CSV, ready for your payroll process — no retyping from register books.</p>
           </article>
 
-          <!-- Card 10: Mobile Offline Mode (blue) -->
+          <!-- Card 10: Geofenced Check-In (blue) -->
           <article class="feat-card reveal d1" role="listitem">
             <div class="feat-icon b" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             </div>
-            <h3>Mobile Offline Mode</h3>
-            <p>The Android and iOS apps work offline. Attendance is stored locally and synced when connectivity is restored.</p>
+            <h3>Geofenced Check-In</h3>
+            <p>GPS places the device inside a company site before marking — 35 m radius by default, tunable per site, and relaxable per organization.</p>
           </article>
 
           <!-- Card 11: Custom Notifications (orange) -->
@@ -175,8 +175,8 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="feat-icon o" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
             </div>
-            <h3>Custom Notifications</h3>
-            <p>Configure SMS or push notification alerts for late arrivals, absences, or overtime — per employee, department, or location.</p>
+            <h3>Attendance Rules</h3>
+            <p>Decide which teams may mark attendance where — rules by warehouse, department, and premises type, plus manual corrections with reasons.</p>
           </article>
 
           <!-- Card 12: Audit Log & Compliance (coral) -->

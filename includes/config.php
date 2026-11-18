@@ -38,15 +38,21 @@ defined('ADMIN_DISPLAY_NAME')  || define('ADMIN_DISPLAY_NAME', 'Mark Attendance 
 const SITE_URL  = 'https://markattendance.io';   // no trailing slash
 const SITE_NAME = 'Mark Attendance';
 
+// ── Dynamic settings (editable in /admin/settings) ────────────
+// The values below are only DEFAULTS: once a value is saved in the admin dashboard,
+// the saved value wins (ma_settings table) — including an intentionally empty one.
+require_once __DIR__ . '/settings.php';
+
 // ── Contact details ───────────────────────────────────────────
-const CONTACT_EMAIL   = 'info@markattendance.io';
-const CONTACT_PHONE   = '+92 306 4164077';               // shown on the site
-const CONTACT_PHONE_E164 = '+923064164077';              // used in tel: links
-const WHATSAPP_NUMBER = '923064164077';                  // digits only, with country code
-const WHATSAPP_TEXT   = "Hi Mark Attendance, I'd like to know more about your attendance system.";
+define('CONTACT_EMAIL',   site_setting('contact_email', 'info@markattendance.io'));
+define('CONTACT_PHONE',   site_setting('contact_phone', '+92 306 4164077'));          // shown on the site
+define('CONTACT_PHONE_E164', '+' . preg_replace('/\D+/', '', CONTACT_PHONE));         // used in tel: links
+define('CONTACT_ADDRESS', site_setting('contact_address', 'Lahore, Pakistan'));
+define('WHATSAPP_NUMBER', site_setting('whatsapp_number', '923064164077'));           // digits only, with country code
+define('WHATSAPP_TEXT',   site_setting('whatsapp_text', "Hi Mark Attendance, I'd like to know more about your attendance system."));
 
 // Contact-form submissions are emailed here and saved in the admin dashboard (/admin/queries).
-const FORM_RECIPIENT  = 'abbas8156@gmail.com';
+define('FORM_RECIPIENT', site_setting('form_recipient', 'abbas8156@gmail.com'));
 // "From" address for form emails — must be a mailbox on YOUR domain or many hosts reject it.
 const FORM_FROM       = 'no-reply@markattendance.io';
 
@@ -62,25 +68,28 @@ defined('SMTP_PASS')   || define('SMTP_PASS', '');
 defined('SMTP_FROM')   || define('SMTP_FROM', '');
 
 // ── Web app login (empty = "Log In" button hidden) ────────────
-const APP_LOGIN_URL = '';
+define('APP_LOGIN_URL', site_setting('app_login_url', ''));
 
 // ── App stores (empty = badge shows "Coming soon") ────────────
-const PLAY_STORE_URL = '';
-const APP_STORE_URL  = '';
+define('PLAY_STORE_URL', site_setting('play_store_url', ''));
+define('APP_STORE_URL',  site_setting('app_store_url', ''));
 
 // ── Social profiles (empty = icon hidden) ─────────────────────
-const SOCIAL_LINKS = [
-    'facebook'  => '',
-    'twitter'   => '',
-    'linkedin'  => '',
-    'instagram' => '',
-];
+define('SOCIAL_LINKS', [
+    'facebook'  => site_setting('social_facebook', ''),
+    'twitter'   => site_setting('social_twitter', ''),
+    'linkedin'  => site_setting('social_linkedin', ''),
+    'instagram' => site_setting('social_instagram', ''),
+]);
 
 // ── Google ─────────────────────────────────────────────────────
 // Search Console → Add property → "HTML tag" method → paste only the content="…" value.
-const GOOGLE_SITE_VERIFICATION = '';
+define('GOOGLE_SITE_VERIFICATION', site_setting('google_site_verification', ''));
 // Google Analytics 4 Measurement ID (e.g. 'G-XXXXXXXXXX'). Loads only after cookie consent.
-const GA4_MEASUREMENT_ID = 'G-TB9N4NXGJT';
+define('GA4_MEASUREMENT_ID', site_setting('ga4_id', 'G-TB9N4NXGJT'));
+
+// ── Favicon (uploaded in /admin/settings; empty = assets/favicon.svg) ──
+define('SITE_FAVICON', site_setting('favicon_path', ''));
 
 // ── Helpers ────────────────────────────────────────────────────
 function whatsapp_url(string $text = WHATSAPP_TEXT): string
