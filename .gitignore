@@ -4,3 +4,6 @@ data/*
 
 # Server-specific settings (database credentials, admin password hash)
 includes/config.local.php
+
+# Files uploaded through /admin/settings (environment-specific, e.g. favicon)
+assets/uploads/

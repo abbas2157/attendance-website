@@ -148,7 +148,7 @@ require_once __DIR__ . '/includes/nav.php';
               </div>
               <div>
                 <div class="cd-lbl">Location</div>
-                <div class="cd-val">Lahore, Pakistan</div>
+                <div class="cd-val"><?= htmlspecialchars(CONTACT_ADDRESS) ?></div>
               </div>
             </div>
 

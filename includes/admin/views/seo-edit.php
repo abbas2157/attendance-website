@@ -59,7 +59,7 @@ $ogPreview   = str_starts_with($ogImage, SITE_URL . '/') ? url(substr($ogImage, 
             <div class="serp" aria-label="Google search preview">
                 <p class="serp-label">Google preview</p>
                 <div class="serp-site">
-                    <span class="serp-favicon"><img src="<?= url('/assets/favicon.svg') ?>" alt="" width="18" height="18"></span>
+                    <span class="serp-favicon"><img src="<?= asset(SITE_FAVICON !== '' ? SITE_FAVICON : '/assets/favicon.svg') ?>" alt="" width="18" height="18"></span>
                     <span><strong><?= e(SITE_NAME) ?></strong><small><?= e(seo_breadcrumb_url($seoPath)) ?></small></span>
                 </div>
                 <p class="serp-title" data-serp-out="title"><?= e($title) ?></p>

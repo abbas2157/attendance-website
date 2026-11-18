@@ -4,8 +4,8 @@
  * Lists every page in SEO_PAGES except those set to "Hide from Google" in /admin/seo.
  * lastmod = the newer of the page file and its last SEO edit.
  */
-require __DIR__ . '/includes/config.php';
-require __DIR__ . '/includes/seo.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/seo.php';
 
 $meta = db_safe(fn() => seo_all_meta(), []);
 header('Content-Type: application/xml; charset=UTF-8');

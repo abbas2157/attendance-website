@@ -1,9 +1,9 @@
 <?php
 $page_title          = 'Mobile App | Mark Attendance – Android & iOS Attendance App';
-$meta_description    = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
+$meta_description    = 'The Mark Attendance app for Android and iOS is coming soon. Clock in with your face at your site — geofenced, verified in seconds, every attempt logged.';
 $canonical_url       = 'https://markattendance.io/mobile-app';
-$og_description      = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
-$twitter_description = 'The Mark Attendance app for Android and iOS is coming soon. Mark attendance with face recognition from your phone. Works offline.';
+$og_description      = 'The Mark Attendance app for Android and iOS is coming soon. Clock in with your face at your site — geofenced, verified in seconds, every attempt logged.';
+$twitter_description = 'The Mark Attendance app for Android and iOS is coming soon. Clock in with your face at your site — geofenced, verified in seconds, every attempt logged.';
 $current_page        = 'mobile-app';
 $json_ld = <<<'JSONLD'
 {
@@ -25,12 +25,12 @@ $json_ld = <<<'JSONLD'
       "url": "https://markattendance.io"
     },
     "featureList": [
-      "Face Recognition Attendance",
-      "Offline Mode with Auto-Sync",
-      "Real-time Dashboard",
-      "Push Notifications",
-      "Report Export",
-      "Multi-Device Sync"
+      "Face-Verified Check-In and Check-Out",
+      "Geofenced Site Detection",
+      "Leave Requests and Approvals",
+      "Attendance History",
+      "Fast Staff Enrollment",
+      "Light and Dark Themes"
     ]
   }
 JSONLD;
@@ -67,31 +67,31 @@ require_once __DIR__ . '/includes/nav.php';
               <span class="bullet-check" aria-hidden="true">
                 <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              One-tap face scan check-in
+              One-tap face check-in and check-out
             </li>
             <li class="app-bullet">
               <span class="bullet-check" aria-hidden="true">
                 <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              Real-time attendance dashboard
+              Geofenced — knows when you're on site
             </li>
             <li class="app-bullet">
               <span class="bullet-check" aria-hidden="true">
                 <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              Offline mode with auto-sync
+              Apply for leave in a tap
             </li>
             <li class="app-bullet">
               <span class="bullet-check" aria-hidden="true">
                 <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              Push alerts for late arrivals
+              Your last 30 days, always visible
             </li>
             <li class="app-bullet">
               <span class="bullet-check" aria-hidden="true">
                 <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              Secure biometric authentication
+              Every attempt logged with match confidence
             </li>
             <li class="app-bullet">
               <span class="bullet-check" aria-hidden="true">
@@ -102,89 +102,18 @@ require_once __DIR__ . '/includes/nav.php';
           </ul>
         </div>
 
-        <!-- Right: Phone Mockups -->
+        <!-- Right: Phone Mockups — real app screenshots -->
         <div class="phones-pair reveal d3" aria-hidden="true">
-
-          <!-- Secondary phone: Dashboard -->
           <div class="phone-card sec">
             <div class="phone-card-inner">
-              <div class="phone-card-screen">
-                <div class="phone-card-notch"></div>
-                <div class="mini-header">
-                  <span class="mini-title">Dashboard</span>
-                  <span class="mini-dot"></span>
-                </div>
-                <div class="mini-rows">
-                  <div class="mini-row">
-                    <span class="mini-row-n">Present</span>
-                    <span class="mini-row-s">42</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Absent</span>
-                    <span class="mini-row-s absent">3</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Late</span>
-                    <span class="mini-row-s late">2</span>
-                  </div>
-                </div>
-                <div class="mini-chart">
-                  <div class="mini-bar p h-55"></div>
-                  <div class="mini-bar g h-90"></div>
-                  <div class="mini-bar b h-70"></div>
-                  <div class="mini-bar o h-45"></div>
-                  <div class="mini-bar p h-80"></div>
-                  <div class="mini-bar g h-65"></div>
-                  <div class="mini-bar b h-95"></div>
-                </div>
-                <div class="mini-rows">
-                  <div class="mini-row">
-                    <span class="mini-row-n">Mon</span>
-                    <span class="mini-row-s">98%</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Tue</span>
-                    <span class="mini-row-s">95%</span>
-                  </div>
-                </div>
-              </div>
+              <img class="phone-card-shot" src="<?= SITE_BASE ?>/assets/app-screens/home.webp" alt="" width="760" height="1648" fetchpriority="high">
             </div>
           </div>
-
-          <!-- Primary phone: Face Scan -->
           <div class="phone-card pri">
             <div class="phone-card-inner">
-              <div class="phone-card-screen">
-                <div class="phone-card-notch"></div>
-                <div class="mini-header">
-                  <span class="mini-title">Mark Attendance</span>
-                  <span class="mini-dot"></span>
-                </div>
-                <div class="mini-face">&#x1F464;</div>
-                <div class="mini-name">Ahmed Raza</div>
-                <div class="mini-status">CHECKED IN</div>
-                <div class="mini-rows">
-                  <div class="mini-row">
-                    <span class="mini-row-n">Time In</span>
-                    <span class="mini-row-s">09:02 AM</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Status</span>
-                    <span class="mini-row-s">On Time</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Shift</span>
-                    <span class="mini-row-s">Morning</span>
-                  </div>
-                  <div class="mini-row">
-                    <span class="mini-row-n">Dept</span>
-                    <span class="mini-row-s">Engineering</span>
-                  </div>
-                </div>
-              </div>
+              <img class="phone-card-shot" src="<?= SITE_BASE ?>/assets/app-screens/checked-in.webp" alt="" width="760" height="1648" fetchpriority="high">
             </div>
           </div>
-
         </div><!-- /phones-pair -->
       </div><!-- /app-hero-grid -->
     </div><!-- /container -->
@@ -199,7 +128,7 @@ require_once __DIR__ . '/includes/nav.php';
       <div class="section-header reveal">
         <span class="tag">App Capabilities</span>
         <h2 id="app-features-heading">What You Can Do in the App</h2>
-        <p>Everything you need to run attendance — admin controls, employee check-in, reporting, and more — right from your phone.</p>
+        <p>Check in with your face, see your month, request leave, and enrol new staff — right from your phone.</p>
       </div>
 
       <div class="features-grid">
@@ -210,7 +139,7 @@ require_once __DIR__ . '/includes/nav.php';
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M3 20c0-4 4-7 9-7s9 3 9 7"/><path d="M9 8l2 2 4-4" stroke-width="1.8"/></svg>
           </div>
           <h3>One-Tap Face Scan</h3>
-          <p>Open the app, look at the camera, done. Attendance marked in under a second with face recognition.</p>
+          <p>Enter your attendance code, look at the camera, done. The frame is verified against your own enrolled samples — never the whole workforce.</p>
         </article>
 
         <!-- 2 -->
@@ -218,8 +147,8 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="feat-icon b" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <h3>Admin Dashboard</h3>
-          <p>View real-time attendance for your entire team. See who's in, who's absent, and who's late — live.</p>
+          <h3>Geofenced Sites</h3>
+          <p>The app confirms you're inside a company warehouse or premises before the camera even opens. Each site sets its own radius.</p>
         </article>
 
         <!-- 3 -->
@@ -227,8 +156,8 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="feat-icon o" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l5 6-5 6"/><path d="M23 6l-5 6 5 6"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
           </div>
-          <h3>Offline Support</h3>
-          <p>No internet? No problem. The app records attendance offline and syncs automatically when reconnected.</p>
+          <h3>Leave in a Tap</h3>
+          <p>Prove it's you with a quick face scan, pick a date, a paid or unpaid type, and a reason. HR decides from the web dashboard.</p>
         </article>
 
         <!-- 4 -->
@@ -236,8 +165,8 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="feat-icon c" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
           </div>
-          <h3>Smart Notifications</h3>
-          <p>Get instant push notifications for late arrivals, absences, or when an employee leaves before their shift ends.</p>
+          <h3>My Attendance</h3>
+          <p>Your last 30 days at a glance — days present, hours worked, and every check-in and check-out, including HR corrections.</p>
         </article>
 
         <!-- 5 -->
@@ -245,8 +174,8 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="feat-icon p" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
-          <h3>Report Export</h3>
-          <p>Export daily, weekly, or monthly reports directly from the app as PDF or CSV. Share with one tap.</p>
+          <h3>Enrol Staff in a Minute</h3>
+          <p>Admins add employees right from the phone: three live face samples, an optional one with glasses, and they're ready to clock in.</p>
         </article>
 
         <!-- 6 -->
@@ -254,8 +183,8 @@ require_once __DIR__ . '/includes/nav.php';
           <div class="feat-icon b" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><rect x="2" y="7" width="6" height="10" rx="1"/><rect x="16" y="7" width="6" height="10" rx="1"/></svg>
           </div>
-          <h3>Multi-Device</h3>
-          <p>Use your phone, tablet, or a dedicated kiosk. All devices sync together in real time.</p>
+          <h3>Shared Device or Own Phone</h3>
+          <p>One app for the shared device at the gate or each employee's own phone. A single company code links a device to your organization.</p>
         </article>
 
       </div>
@@ -381,152 +310,8 @@ require_once __DIR__ . '/includes/nav.php';
   </section>
 
 
-  <!-- ══════════════════════════════════════════════════════════
-       4. APP SCREENSHOTS SECTION
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="screenshots-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="tag">App Screens</span>
-        <h2 id="screenshots-heading">Designed for Simplicity</h2>
-        <p>Clean, intuitive screens that your team can use from day one — no training required.</p>
-      </div>
-
-      <div class="screenshots-row">
-
-        <!-- Screen 1: Login / Face Scan -->
-        <div class="screenshot-item reveal d1">
-          <div class="screenshot-mockup" aria-hidden="true">
-            <div class="screenshot-mockup-inner">
-              <div class="ss-screen">
-                <div class="ss-notch"></div>
-                <div class="ss-icon">&#x1F512;</div>
-                <div class="ss-label">Face Scan</div>
-                <div class="ss-face-ring">&#x1F464;</div>
-                <div class="ss-sub">Position your face<br>in the frame</div>
-                <div class="ss-scan-bar"></div>
-                <div class="ss-sub ss-sub-xs">Scanning…</div>
-              </div>
-            </div>
-          </div>
-          <p class="screenshot-caption">Login / Face Scan</p>
-          <p class="screenshot-caption-sub">Look at camera to check in</p>
-        </div>
-
-        <!-- Screen 2: Check-in Success -->
-        <div class="screenshot-item reveal d2">
-          <div class="screenshot-mockup" aria-hidden="true">
-            <div class="screenshot-mockup-inner">
-              <div class="ss-screen">
-                <div class="ss-notch"></div>
-                <div class="ss-success-icon">&#x2713;</div>
-                <div class="ss-label ss-label-green">Checked In!</div>
-                <div class="ss-sub">Ahmed Raza</div>
-                <div class="ss-badge">09:02 AM — ON TIME</div>
-                <div class="ss-stat-row">
-                  <div class="ss-stat">
-                    <div class="n">22</div>
-                    <div class="l">Days</div>
-                  </div>
-                  <div class="ss-stat">
-                    <div class="n">98%</div>
-                    <div class="l">Rate</div>
-                  </div>
-                </div>
-                <div class="ss-sub ss-sub-xs">Have a great day!</div>
-              </div>
-            </div>
-          </div>
-          <p class="screenshot-caption">Check-in Success</p>
-          <p class="screenshot-caption-sub">Instant confirmation</p>
-        </div>
-
-        <!-- Screen 3: Attendance Dashboard -->
-        <div class="screenshot-item reveal d3">
-          <div class="screenshot-mockup" aria-hidden="true">
-            <div class="screenshot-mockup-inner">
-              <div class="ss-screen">
-                <div class="ss-notch"></div>
-                <div class="ss-label ss-label-sm-left">Today's Overview</div>
-                <div class="ss-stat-row">
-                  <div class="ss-stat">
-                    <div class="n n-green">42</div>
-                    <div class="l">In</div>
-                  </div>
-                  <div class="ss-stat">
-                    <div class="n n-coral">3</div>
-                    <div class="l">Out</div>
-                  </div>
-                  <div class="ss-stat">
-                    <div class="n n-orange">2</div>
-                    <div class="l">Late</div>
-                  </div>
-                </div>
-                <div class="ss-bar-row">
-                  <div class="ss-bar p h-50"></div>
-                  <div class="ss-bar ss-bar-g h-80"></div>
-                  <div class="ss-bar b h-65"></div>
-                  <div class="ss-bar o h-40"></div>
-                  <div class="ss-bar p h-75"></div>
-                  <div class="ss-bar ss-bar-g h-90"></div>
-                  <div class="ss-bar b h-55"></div>
-                </div>
-                <div class="ss-list-row">
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Ali Hassan</span>
-                    <span class="ss-li-s in">IN</span>
-                  </div>
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Sara Khan</span>
-                    <span class="ss-li-s late">LATE</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="screenshot-caption">Attendance Dashboard</p>
-          <p class="screenshot-caption-sub">Real-time team overview</p>
-        </div>
-
-        <!-- Screen 4: Reports View -->
-        <div class="screenshot-item reveal d4">
-          <div class="screenshot-mockup" aria-hidden="true">
-            <div class="screenshot-mockup-inner">
-              <div class="ss-screen">
-                <div class="ss-notch"></div>
-                <div class="ss-label ss-label-sm-left">Monthly Report</div>
-                <div class="ss-sub ss-sub-left-xs">June 2026 · Engineering</div>
-                <div class="ss-list-row">
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Present Days</span>
-                    <span class="ss-li-s in">22</span>
-                  </div>
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Absent Days</span>
-                    <span class="ss-li-s out">1</span>
-                  </div>
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Late Check-ins</span>
-                    <span class="ss-li-s late">2</span>
-                  </div>
-                  <div class="ss-list-item">
-                    <span class="ss-li-n">Attendance %</span>
-                    <span class="ss-li-s in">95.6%</span>
-                  </div>
-                </div>
-                <div class="ss-export-btn">
-                  <span class="ss-export-label">Export PDF / CSV</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="screenshot-caption">Reports View</p>
-          <p class="screenshot-caption-sub">Export in one tap</p>
-        </div>
-
-      </div><!-- /screenshots-row -->
-    </div>
-  </section>
+  <?php /* App screenshots slider + lightbox (shared with the home page) */ ?>
+  <?php require __DIR__ . '/includes/app-screens.php'; ?>
 
 
   <!-- ══════════════════════════════════════════════════════════

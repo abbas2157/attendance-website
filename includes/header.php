@@ -62,7 +62,10 @@ $e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES | ENT_HTML5, 'UTF-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="<?= asset('/css/style.css') ?>">
-  <link rel="icon" href="<?= SITE_BASE ?>/assets/favicon.svg" type="image/svg+xml">
+  <?php // Favicon: the file uploaded in /admin/settings, or the default SVG
+  $fav     = SITE_FAVICON !== '' && is_file(dirname(__DIR__) . SITE_FAVICON) ? SITE_FAVICON : '/assets/favicon.svg';
+  $favType = str_ends_with($fav, '.svg') ? 'image/svg+xml' : (str_ends_with($fav, '.png') ? 'image/png' : 'image/x-icon'); ?>
+  <link rel="icon" href="<?= asset($fav) ?>" type="<?= $favType ?>">
   <link rel="apple-touch-icon" href="<?= SITE_BASE ?>/assets/apple-touch-icon.png">
   <link rel="canonical" href="<?= $e($canonical_url) ?>">
   <title><?= $e($page_title) ?></title>

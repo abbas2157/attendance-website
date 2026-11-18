@@ -106,7 +106,7 @@ require_once __DIR__ . '/includes/nav.php';
   <section class="section search-results-section">
     <div class="container search-results">
       <?php if ($q === ''): ?>
-        <p class="search-count">Type a word or phrase above, for example <a href="?q=pricing">pricing</a>, <a href="?q=offline">offline</a> or <a href="?q=payroll">payroll</a>.</p>
+        <p class="search-count">Type a word or phrase above, for example <a href="?q=pricing">pricing</a>, <a href="?q=leave">leave</a> or <a href="?q=payroll">payroll</a>.</p>
       <?php elseif (!$results): ?>
         <p class="search-count" role="status">No results for “<strong><?= $qh ?></strong>”.</p>
         <p>Try a different word, or <a href="<?= SITE_BASE ?>/contact">ask our team</a> — we reply within 1 business day.</p>
